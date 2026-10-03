@@ -11,276 +11,285 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #07131f;
+      background: #07111f;
       color: #ffffff;
       min-height: 100vh;
+      padding-bottom: 80px;
     }
 
-    .app {
-      min-height: 100vh;
-      padding-bottom: 75px;
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
     }
 
-    /* Top bar */
+    button {
+      cursor: pointer;
+    }
+
     .topbar {
-      height: 70px;
-      background: #0c2032;
-      display: flex;
-      align-items: center;
-      padding: 0 16px;
-      border-bottom: 1px solid #18364d;
       position: sticky;
       top: 0;
       z-index: 10;
+      background: #0b1728;
+      border-bottom: 1px solid #1d3147;
+      padding: 16px;
     }
 
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #10b981;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 21px;
-      margin-right: 10px;
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      color: #31e981;
     }
 
-    .brand h1 {
-      font-size: 18px;
-      line-height: 22px;
+    .subtitle {
+      font-size: 12px;
+      color: #8ea1b5;
+      margin-top: 4px;
     }
 
-    .brand span {
-      font-size: 11px;
-      color: #8fa9bb;
-    }
-
-    .online {
-      margin-left: auto;
-      font-size: 11px;
-      color: #34d399;
-    }
-
-    /* Main */
-    .main {
+    .container {
+      width: 100%;
+      max-width: 700px;
+      margin: auto;
       padding: 18px 14px;
     }
 
-    .welcome {
-      margin-bottom: 18px;
+    .screen {
+      display: none;
     }
 
-    .welcome h2 {
-      font-size: 24px;
+    .screen.active {
+      display: block;
+    }
+
+    .page-title {
+      font-size: 25px;
+      font-weight: 800;
       margin-bottom: 5px;
     }
 
-    .welcome p {
-      color: #91a7b7;
+    .page-subtitle {
+      color: #91a3b7;
       font-size: 13px;
-    }
-
-    /* Cards */
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
       margin-bottom: 18px;
     }
 
-    .card {
-      background: #0d2438;
-      border: 1px solid #193b53;
-      border-radius: 14px;
-      padding: 15px;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
-    .stat-title {
-      color: #91a7b7;
+    .card {
+      background: #0d1c2e;
+      border: 1px solid #1d344b;
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .stat-label {
+      color: #91a3b7;
       font-size: 12px;
       margin-bottom: 8px;
     }
 
     .stat-value {
       font-size: 25px;
-      font-weight: bold;
-    }
-
-    .green {
-      color: #34d399;
-    }
-
-    .blue {
-      color: #60a5fa;
-    }
-
-    .orange {
-      color: #fbbf24;
-    }
-
-    .purple {
-      color: #a78bfa;
-    }
-
-    /* Sections */
-    .section {
-      background: #0d2438;
-      border: 1px solid #193b53;
-      border-radius: 14px;
-      padding: 15px;
-      margin-bottom: 15px;
+      font-weight: 800;
     }
 
     .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 24px 0 12px;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .action-btn {
+      border: 1px solid #23445a;
+      background: #102338;
+      color: white;
+      border-radius: 15px;
+      padding: 17px 10px;
+      text-align: left;
+    }
+
+    .action-btn:hover {
+      border-color: #31e981;
+    }
+
+    .action-icon {
+      font-size: 23px;
+      margin-bottom: 9px;
+    }
+
+    .action-title {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .action-text {
+      color: #91a3b7;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .summary-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #1c3044;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-name {
+      color: #c8d4df;
+      font-size: 13px;
+    }
+
+    .summary-value {
+      font-weight: 700;
+    }
+
+    .form-card {
+      background: #0d1c2e;
+      border: 1px solid #1d344b;
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: #a9bac9;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #29435b;
+      background: #081625;
+      color: white;
+      border-radius: 10px;
+      padding: 12px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #31e981;
+    }
+
+    textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    .primary-btn {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      background: #31e981;
+      color: #04120a;
+      font-weight: 800;
+      margin-top: 5px;
+    }
+
+    .secondary-btn {
+      width: 100%;
+      border: 1px solid #29435b;
+      border-radius: 12px;
+      padding: 13px;
+      background: #102338;
+      color: white;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .search-box {
       margin-bottom: 14px;
     }
 
-    .section-title h3 {
-      font-size: 16px;
+    .empty {
+      text-align: center;
+      padding: 30px 15px;
+      color: #8195a9;
     }
 
-    .section-title span {
-      color: #34d399;
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      background: #0a1727;
+      border-top: 1px solid #1d3147;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 8px 5px;
+    }
+
+    .nav-btn {
+      border: none;
+      background: transparent;
+      color: #7f94a9;
+      padding: 6px 2px;
       font-size: 11px;
     }
 
-    /* Quick actions */
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .action {
-      border: none;
-      border-radius: 12px;
-      padding: 16px 8px;
-      color: white;
-      font-size: 13px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .action-inventory {
-      background: #2563eb;
-    }
-
-    .action-search {
-      background: #059669;
-    }
-
-    .action-dispatch {
-      background: #d97706;
-    }
-
-    .action-install {
-      background: #7c3aed;
-    }
-
-    /* Inventory summary */
-    .inventory-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #17354b;
-      font-size: 13px;
-    }
-
-    .inventory-row:last-child {
-      border-bottom: none;
-    }
-
-    .inventory-label {
-      color: #a9bbc8;
-    }
-
-    /* Activity */
-    .activity {
-      display: flex;
-      gap: 10px;
-      padding: 11px 0;
-      border-bottom: 1px solid #17354b;
-    }
-
-    .activity:last-child {
-      border-bottom: none;
-    }
-
-    .activity-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #123c4b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .activity-text {
-      flex: 1;
-    }
-
-    .activity-text strong {
-      display: block;
-      font-size: 12px;
-      margin-bottom: 3px;
-    }
-
-    .activity-text small {
-      color: #8198a8;
-      font-size: 10px;
-    }
-
-    /* Bottom navigation */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 68px;
-      background: #0b1d2d;
-      border-top: 1px solid #193b53;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      z-index: 20;
-    }
-
-    .nav-item {
-      border: none;
-      background: transparent;
-      color: #71899b;
-      font-size: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .nav-item.active {
-      color: #34d399;
+    .nav-btn.active {
+      color: #31e981;
     }
 
     .nav-icon {
-      font-size: 21px;
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
     }
 
-    /* Desktop adjustment */
-    @media (min-width: 700px) {
-      .main {
-        max-width: 900px;
-        margin: auto;
-      }
+    .back-btn {
+      border: none;
+      background: transparent;
+      color: #31e981;
+      padding: 0;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
 
+    .notice {
+      background: #102338;
+      border: 1px solid #29435b;
+      color: #a9bac9;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: 700px) {
       .stats {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -288,182 +297,717 @@
       .actions {
         grid-template-columns: repeat(4, 1fr);
       }
-
-      .bottom-nav {
-        display: none;
-      }
-
-      .app {
-        padding-bottom: 20px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="app">
+  <header class="topbar">
+    <div class="brand">TRAK MOTION GPS</div>
+    <div class="subtitle">Inventory Management System</div>
+  </header>
 
-    <header class="topbar">
-      <div class="logo">📍</div>
+  <main class="container">
 
-      <div class="brand">
-        <h1>TRAK MOTION GPS</h1>
-        <span>Track • Manage • Grow</span>
-      </div>
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="screen active">
 
-      <div class="online">● Online</div>
-    </header>
-
-    <main class="main">
-
-      <div class="welcome">
-        <h2>Dashboard</h2>
-        <p>Inventory & GPS management system</p>
-      </div>
+      <div class="page-title">Dashboard</div>
+      <div class="page-subtitle">Welcome to TRAK MOTION GPS</div>
 
       <div class="stats">
 
         <div class="card">
-          <div class="stat-title">Total Inventory</div>
-          <div class="stat-value blue">0</div>
+          <div class="stat-label">Total Inventory</div>
+          <div class="stat-value" id="totalInventory">0</div>
         </div>
 
         <div class="card">
-          <div class="stat-title">In Stock</div>
-          <div class="stat-value green">0</div>
+          <div class="stat-label">In Stock</div>
+          <div class="stat-value" id="inStock">0</div>
         </div>
 
         <div class="card">
-          <div class="stat-title">Installed</div>
-          <div class="stat-value purple">0</div>
+          <div class="stat-label">Installed</div>
+          <div class="stat-value" id="installed">0</div>
         </div>
 
         <div class="card">
-          <div class="stat-title">Dispatched</div>
-          <div class="stat-value orange">0</div>
+          <div class="stat-label">Dispatched</div>
+          <div class="stat-value" id="dispatched">0</div>
         </div>
 
       </div>
 
-      <section class="section">
+      <div class="section-title">Quick Actions</div>
 
-        <div class="section-title">
-          <h3>Quick Actions</h3>
-          <span>GPS Ji</span>
+      <div class="actions">
+
+        <button class="action-btn" onclick="showScreen('addInventory')">
+          <div class="action-icon">📦</div>
+          <div class="action-title">Add Inventory</div>
+          <div class="action-text">Add new GPS device</div>
+        </button>
+
+        <button class="action-btn" onclick="showScreen('search')">
+          <div class="action-icon">🔍</div>
+          <div class="action-title">Search</div>
+          <div class="action-text">Find inventory</div>
+        </button>
+
+        <button class="action-btn" onclick="showScreen('dispatch')">
+          <div class="action-icon">🚚</div>
+          <div class="action-title">Dispatch</div>
+          <div class="action-text">Dispatch device</div>
+        </button>
+
+        <button class="action-btn" onclick="showScreen('installation')">
+          <div class="action-icon">🔧</div>
+          <div class="action-title">Installation</div>
+          <div class="action-text">Install GPS</div>
+        </button>
+
+      </div>
+
+      <div class="section-title">Inventory Summary</div>
+
+      <div class="card">
+
+        <div class="summary-row">
+          <span class="summary-name">IN STOCK</span>
+          <span class="summary-value" id="summaryStock">0</span>
         </div>
 
-        <div class="actions">
-
-          <button class="action action-inventory">
-            📦<br>
-            Add Inventory
-          </button>
-
-          <button class="action action-search">
-            🔍<br>
-            Search
-          </button>
-
-          <button class="action action-dispatch">
-            🚚<br>
-            Dispatch
-          </button>
-
-          <button class="action action-install">
-            📍<br>
-            Installation
-          </button>
-
+        <div class="summary-row">
+          <span class="summary-name">PACKED</span>
+          <span class="summary-value">0</span>
         </div>
 
-      </section>
-
-      <section class="section">
-
-        <div class="section-title">
-          <h3>Inventory Summary</h3>
+        <div class="summary-row">
+          <span class="summary-name">DISPATCHED</span>
+          <span class="summary-value">0</span>
         </div>
 
-        <div class="inventory-row">
-          <span class="inventory-label">IN STOCK</span>
-          <strong>0</strong>
+        <div class="summary-row">
+          <span class="summary-name">DELIVERED</span>
+          <span class="summary-value">0</span>
         </div>
 
-        <div class="inventory-row">
-          <span class="inventory-label">PACKED</span>
-          <strong>0</strong>
+        <div class="summary-row">
+          <span class="summary-name">INSTALLED</span>
+          <span class="summary-value" id="summaryInstalled">0</span>
         </div>
 
-        <div class="inventory-row">
-          <span class="inventory-label">DISPATCHED</span>
-          <strong>0</strong>
+        <div class="summary-row">
+          <span class="summary-name">RETURNED</span>
+          <span class="summary-value">0</span>
         </div>
 
-        <div class="inventory-row">
-          <span class="inventory-label">DELIVERED</span>
-          <strong>0</strong>
+      </div>
+
+      <div class="section-title">Recent Activity</div>
+
+      <div class="card">
+        <div class="empty">
+          No recent activity
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- INVENTORY -->
+    <section id="inventory" class="screen">
+
+      <div class="page-title">Inventory</div>
+      <div class="page-subtitle">Manage GPS devices</div>
+
+      <div class="actions">
+
+        <button class="action-btn" onclick="showScreen('addInventory')">
+          <div class="action-icon">➕</div>
+          <div class="action-title">Add Device</div>
+          <div class="action-text">Add inventory</div>
+        </button>
+
+        <button class="action-btn" onclick="showScreen('search')">
+          <div class="action-icon">🔍</div>
+          <div class="action-title">Search</div>
+          <div class="action-text">Search inventory</div>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <section id="search" class="screen">
+
+      <div class="page-title">Search</div>
+      <div class="page-subtitle">Find inventory using IMEI or SIM</div>
+
+      <div class="form-card">
+
+        <div class="form-group">
+          <label>Search IMEI / SIM / Vehicle / Customer</label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter search value">
         </div>
 
-        <div class="inventory-row">
-          <span class="inventory-label">INSTALLED</span>
-          <strong>0</strong>
-        </div>
+        <button class="primary-btn" onclick="performSearch()">
+          SEARCH
+        </button>
 
-      </section>
+      </div>
 
-      <section class="section">
+      <div id="searchResult" style="margin-top:15px;"></div>
 
-        <div class="section-title">
-          <h3>Recent Activity</h3>
-          <span>Live</span>
-        </div>
+    </section>
 
-        <div class="activity">
-          <div class="activity-icon">📦</div>
-          <div class="activity-text">
-            <strong>Inventory system ready</strong>
-            <small>Waiting for inventory entries</small>
-          </div>
-        </div>
 
-        <div class="activity">
-          <div class="activity-icon">✅</div>
-          <div class="activity-text">
-            <strong>Backend connected</strong>
-            <small>Google Apps Script is running</small>
-          </div>
-        </div>
+    <!-- ADD INVENTORY -->
+    <section id="addInventory" class="screen">
 
-      </section>
-
-    </main>
-
-    <nav class="bottom-nav">
-
-      <button class="nav-item active">
-        <span class="nav-icon">⌂</span>
-        Dashboard
+      <button class="back-btn" onclick="showScreen('dashboard')">
+        ← Back
       </button>
 
-      <button class="nav-item">
-        <span class="nav-icon">📦</span>
-        Inventory
+      <div class="page-title">Add Inventory</div>
+      <div class="page-subtitle">Add a new GPS device</div>
+
+      <div class="notice">
+        IMEI should contain numbers only and must be more than 10 digits.
+      </div>
+
+      <div class="form-card">
+
+        <div class="form-group">
+          <label>IMEI No. *</label>
+          <input
+            type="text"
+            id="imei"
+            inputmode="numeric"
+            placeholder="Enter IMEI">
+        </div>
+
+        <div class="form-group">
+          <label>SIM No. *</label>
+          <input
+            type="text"
+            id="sim"
+            placeholder="Scan or enter SIM number">
+        </div>
+
+        <div class="form-group">
+          <label>Device Model *</label>
+
+          <select id="deviceModel">
+            <option value="">Select Device Model</option>
+            <option value="BR05M">BR05M</option>
+            <option value="BR05 V5">BR05 V5</option>
+            <option value="SK05">SK05</option>
+            <option value="OTHERS">OTHERS</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Relay *</label>
+
+          <select id="relay">
+            <option value="">Select Relay</option>
+            <option value="12V">12V</option>
+            <option value="24V">24V</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Purchase Price (₹) *</label>
+
+          <input
+            type="number"
+            id="purchasePrice"
+            min="0"
+            step="0.01"
+            placeholder="Enter purchase price">
+
+        </div>
+
+        <div class="form-group">
+          <label>Locking Status *</label>
+
+          <select id="lockingStatus">
+            <option value="">Select Locking Status</option>
+            <option value="LOCKED">LOCKED</option>
+            <option value="NOT LOCKED">NOT LOCKED</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Remarks</label>
+
+          <textarea
+            id="remarks"
+            placeholder="Optional remarks"></textarea>
+
+        </div>
+
+        <button class="primary-btn" onclick="saveInventory()">
+          SAVE INVENTORY
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- DISPATCH -->
+    <section id="dispatch" class="screen">
+
+      <button class="back-btn" onclick="showScreen('dashboard')">
+        ← Back
       </button>
 
-      <button class="nav-item">
-        <span class="nav-icon">🔍</span>
-        Search
+      <div class="page-title">Dispatch</div>
+      <div class="page-subtitle">Dispatch GPS device</div>
+
+      <div class="form-card">
+
+        <div class="form-group">
+          <label>IMEI No. *</label>
+          <input
+            type="text"
+            id="dispatchImei"
+            placeholder="Enter IMEI">
+        </div>
+
+        <div class="form-group">
+          <label>Party Type *</label>
+
+          <select id="partyType">
+            <option value="">Select Party Type</option>
+            <option value="DEALER">DEALER</option>
+            <option value="DISTRIBUTOR">DISTRIBUTOR</option>
+            <option value="INSTALLER">INSTALLER</option>
+            <option value="CAR MECHANIC">CAR MECHANIC</option>
+            <option value="CAR ACCESSORIES">CAR ACCESSORIES</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Party Name *</label>
+          <input
+            type="text"
+            id="partyName"
+            placeholder="Enter party name">
+        </div>
+
+        <div class="form-group">
+          <label>Party Mobile</label>
+          <input
+            type="tel"
+            id="partyMobile"
+            placeholder="Enter mobile">
+        </div>
+
+        <div class="form-group">
+          <label>Dispatch Amount (₹)</label>
+          <input
+            type="number"
+            id="dispatchAmount"
+            min="0"
+            step="0.01"
+            placeholder="Enter amount">
+        </div>
+
+        <div class="form-group">
+          <label>Remarks</label>
+          <textarea
+            id="dispatchRemarks"
+            placeholder="Optional remarks"></textarea>
+        </div>
+
+        <button class="primary-btn" onclick="saveDispatch()">
+          DISPATCH
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- INSTALLATION -->
+    <section id="installation" class="screen">
+
+      <button class="back-btn" onclick="showScreen('dashboard')">
+        ← Back
       </button>
 
-      <button class="nav-item">
-        <span class="nav-icon">☰</span>
-        More
-      </button>
+      <div class="page-title">Installation</div>
+      <div class="page-subtitle">Install GPS device</div>
 
-    </nav>
+      <div class="form-card">
 
-  </div>
+        <div class="form-group">
+          <label>IMEI No. *</label>
+          <input
+            type="text"
+            id="installationImei"
+            placeholder="Enter IMEI">
+        </div>
+
+        <div class="form-group">
+          <label>Installer Name *</label>
+          <input
+            type="text"
+            id="installerName"
+            placeholder="Enter installer name">
+        </div>
+
+        <div class="form-group">
+          <label>Installer Mobile *</label>
+          <input
+            type="tel"
+            id="installerMobile"
+            placeholder="Enter installer mobile">
+        </div>
+
+        <div class="form-group">
+          <label>Customer Name *</label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter customer name">
+        </div>
+
+        <div class="form-group">
+          <label>Customer Mobile *</label>
+          <input
+            type="tel"
+            id="customerMobile"
+            placeholder="Enter customer mobile">
+        </div>
+
+        <div class="form-group">
+          <label>Vehicle No. *</label>
+          <input
+            type="text"
+            id="vehicleNo"
+            placeholder="Enter vehicle number">
+        </div>
+
+        <div class="form-group">
+          <label>Installation Status *</label>
+
+          <select id="installationStatus">
+            <option value="">Select Status</option>
+            <option value="PENDING">PENDING</option>
+            <option value="INSTALLED">INSTALLED</option>
+            <option value="REPLACED">REPLACED</option>
+            <option value="REMOVED">REMOVED</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>GPS Sale Price (₹)</label>
+          <input
+            type="number"
+            id="gpsSalePrice"
+            min="0"
+            step="0.01"
+            placeholder="Enter amount">
+        </div>
+
+        <div class="form-group">
+          <label>Installation Price (₹)</label>
+          <input
+            type="number"
+            id="installationPrice"
+            min="0"
+            step="0.01"
+            placeholder="Enter amount">
+        </div>
+
+        <div class="form-group">
+          <label>Installer Share Amount (₹)</label>
+          <input
+            type="number"
+            id="installerShare"
+            min="0"
+            step="0.01"
+            placeholder="Enter amount">
+        </div>
+
+        <div class="form-group">
+          <label>Remarks</label>
+          <textarea
+            id="installationRemarks"
+            placeholder="Optional remarks"></textarea>
+        </div>
+
+        <button class="primary-btn" onclick="saveInstallation()">
+          SAVE INSTALLATION
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- MORE -->
+    <section id="more" class="screen">
+
+      <div class="page-title">More</div>
+      <div class="page-subtitle">System options</div>
+
+      <div class="card">
+
+        <div class="summary-row">
+          <span class="summary-name">Company</span>
+          <span class="summary-value">TRAK MOTION GPS</span>
+        </div>
+
+        <div class="summary-row">
+          <span class="summary-name">Website</span>
+          <span class="summary-value">trakmotion.in</span>
+        </div>
+
+        <div class="summary-row">
+          <span class="summary-name">Contact</span>
+          <span class="summary-value">8002626356</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+    <button class="nav-btn active" onclick="showScreen('dashboard', this)">
+      <span class="nav-icon">⌂</span>
+      Dashboard
+    </button>
+
+    <button class="nav-btn" onclick="showScreen('inventory', this)">
+      <span class="nav-icon">📦</span>
+      Inventory
+    </button>
+
+    <button class="nav-btn" onclick="showScreen('search', this)">
+      <span class="nav-icon">🔍</span>
+      Search
+    </button>
+
+    <button class="nav-btn" onclick="showScreen('more', this)">
+      <span class="nav-icon">☰</span>
+      More
+    </button>
+
+  </nav>
+
+
+  <script>
+
+    function showScreen(screenId, navButton) {
+
+      document.querySelectorAll(".screen").forEach(function(screen) {
+        screen.classList.remove("active");
+      });
+
+      const selected = document.getElementById(screenId);
+
+      if (selected) {
+        selected.classList.add("active");
+      }
+
+      document.querySelectorAll(".nav-btn").forEach(function(button) {
+        button.classList.remove("active");
+      });
+
+      if (navButton) {
+        navButton.classList.add("active");
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+
+    function saveInventory() {
+
+      const imei = document.getElementById("imei").value.trim();
+      const sim = document.getElementById("sim").value.trim();
+      const model = document.getElementById("deviceModel").value;
+      const relay = document.getElementById("relay").value;
+      const price = document.getElementById("purchasePrice").value;
+      const locking = document.getElementById("lockingStatus").value;
+
+      if (!imei) {
+        alert("IMEI No. is required.");
+        return;
+      }
+
+      if (!/^[0-9]+$/.test(imei) || imei.length <= 10) {
+        alert("Invalid IMEI — Enter numbers only and more than 10 digits.");
+        return;
+      }
+
+      if (!sim) {
+        alert("SIM No. is required.");
+        return;
+      }
+
+      if (!model) {
+        alert("Please select Device Model.");
+        return;
+      }
+
+      if (!relay) {
+        alert("Please select Relay.");
+        return;
+      }
+
+      if (price === "" || Number(price) < 0) {
+        alert("Please enter a valid Purchase Price.");
+        return;
+      }
+
+      if (!locking) {
+        alert("Please select Locking Status.");
+        return;
+      }
+
+      alert(
+        "Inventory form validated successfully.\n\n" +
+        "Backend connection will be connected next."
+      );
+    }
+
+
+    function performSearch() {
+
+      const value = document.getElementById("searchInput").value.trim();
+
+      if (!value) {
+        alert("Enter IMEI, SIM, Vehicle or Customer.");
+        return;
+      }
+
+      document.getElementById("searchResult").innerHTML =
+        '<div class="card"><div class="empty">' +
+        'Search is ready. Backend connection will be connected next.' +
+        '</div></div>';
+    }
+
+
+    function saveDispatch() {
+
+      const imei = document.getElementById("dispatchImei").value.trim();
+      const partyType = document.getElementById("partyType").value;
+      const partyName = document.getElementById("partyName").value.trim();
+
+      if (!imei) {
+        alert("IMEI No. is required.");
+        return;
+      }
+
+      if (!partyType) {
+        alert("Please select Party Type.");
+        return;
+      }
+
+      if (!partyName) {
+        alert("Party Name is required.");
+        return;
+      }
+
+      alert(
+        "Dispatch form validated successfully.\n\n" +
+        "Backend connection will be connected next."
+      );
+    }
+
+
+    function saveInstallation() {
+
+      const imei =
+        document.getElementById("installationImei").value.trim();
+
+      const installer =
+        document.getElementById("installerName").value.trim();
+
+      const installerMobile =
+        document.getElementById("installerMobile").value.trim();
+
+      const customer =
+        document.getElementById("customerName").value.trim();
+
+      const customerMobile =
+        document.getElementById("customerMobile").value.trim();
+
+      const vehicle =
+        document.getElementById("vehicleNo").value.trim();
+
+      const status =
+        document.getElementById("installationStatus").value;
+
+      if (!imei) {
+        alert("IMEI No. is required.");
+        return;
+      }
+
+      if (!installer) {
+        alert("Installer Name is required.");
+        return;
+      }
+
+      if (!installerMobile) {
+        alert("Installer Mobile is required.");
+        return;
+      }
+
+      if (!customer) {
+        alert("Customer Name is required.");
+        return;
+      }
+
+      if (!customerMobile) {
+        alert("Customer Mobile is required.");
+        return;
+      }
+
+      if (!vehicle) {
+        alert("Vehicle No. is required.");
+        return;
+      }
+
+      if (!status) {
+        alert("Please select Installation Status.");
+        return;
+      }
+
+      alert(
+        "Installation form validated successfully.\n\n" +
+        "Backend connection will be connected next."
+      );
+    }
+
+  </script>
 
 </body>
 </html>
