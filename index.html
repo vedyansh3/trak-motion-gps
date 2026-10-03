@@ -2,323 +2,766 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>TRAK MOTION GPS</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+:root{
+  --green:#008f63;
+  --green-dark:#006b4b;
+  --green-light:#e8f8f2;
+  --blue:#0879d1;
+  --purple:#7650c9;
+  --orange:#f59b18;
+  --red:#e53935;
+  --text:#19352e;
+  --muted:#71827d;
+  --bg:#f4f7f6;
+  --white:#ffffff;
+  --border:#e2e9e6;
+  --shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
-body {
-  background: #07111f;
-  color: white;
-  min-height: 100vh;
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
-header {
-  padding: 18px;
-  background: #0b1728;
-  border-bottom: 1px solid #1d3147;
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-header h1 {
-  color: #31e981;
-  font-size: 20px;
+body{
+  padding-bottom:78px;
 }
 
-header p {
-  color: #8ea1b5;
-  font-size: 12px;
-  margin-top: 4px;
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
 }
 
-main {
-  padding: 20px 15px 90px;
-  max-width: 700px;
-  margin: auto;
+button{
+  cursor:pointer;
 }
 
-.screen {
-  display: none;
+.app{
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  min-height:100vh;
 }
 
-.screen.active {
-  display: block;
+/* ================= HEADER ================= */
+
+.top-header{
+  background:linear-gradient(135deg,#008f63,#006c4d);
+  color:white;
+  padding:18px 16px 20px;
+  border-radius:0 0 22px 22px;
+  box-shadow:0 4px 15px rgba(0,100,70,.18);
 }
 
-h2 {
-  font-size: 25px;
-  margin-bottom: 6px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.subtitle {
-  color: #91a3b7;
-  margin-bottom: 20px;
-  font-size: 13px;
+.brand-logo{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  color:var(--green);
+  font-weight:bold;
 }
 
-.stats,
-.actions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+.brand-name{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.2px;
 }
 
-.card {
-  background: #0d1c2e;
-  border: 1px solid #1d344b;
-  border-radius: 15px;
-  padding: 16px;
+.brand-sub{
+  font-size:11px;
+  opacity:.9;
+  margin-top:3px;
 }
 
-.label {
-  color: #91a3b7;
-  font-size: 12px;
+/* ================= PAGES ================= */
+
+.page{
+  display:none;
+  padding:14px;
 }
 
-.number {
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 8px;
+.page.active{
+  display:block;
 }
 
-.section {
-  margin-top: 25px;
-  margin-bottom: 12px;
-  font-size: 17px;
-  font-weight: bold;
+.page-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:4px 0 14px;
 }
 
-button {
-  cursor: pointer;
+.back-btn{
+  border:0;
+  background:transparent;
+  font-size:25px;
+  color:var(--text);
+  padding:4px;
 }
 
-.action {
-  background: #0d1c2e;
-  border: 1px solid #1d344b;
-  border-radius: 15px;
-  color: white;
-  padding: 18px 12px;
-  text-align: left;
+.page-title h2{
+  margin:0;
+  font-size:21px;
 }
 
-.action:hover {
-  border-color: #31e981;
+.card{
+  background:white;
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:13px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
 }
 
-.icon {
-  font-size: 23px;
-  margin-bottom: 8px;
+.section-title{
+  color:var(--green);
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:12px;
 }
 
-.title {
-  font-weight: bold;
+/* ================= HOME ================= */
+
+.home-card{
+  background:white;
+  margin-top:14px;
+  border-radius:20px;
+  padding:14px;
+  box-shadow:var(--shadow);
 }
 
-.small {
-  color: #91a3b7;
-  font-size: 11px;
-  margin-top: 4px;
+.action-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
-.back {
-  border: none;
-  background: transparent;
-  color: #31e981;
-  padding: 0;
-  margin-bottom: 18px;
+.action-btn{
+  min-height:112px;
+  border:0;
+  border-radius:16px;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight:800;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
 }
 
-.form {
-  background: #0d1c2e;
-  border: 1px solid #1d344b;
-  border-radius: 15px;
-  padding: 16px;
+.action-btn .icon{
+  font-size:32px;
 }
 
-label {
-  display: block;
-  color: #a9bac9;
-  font-size: 12px;
-  margin-bottom: 6px;
+.action-btn .title{
+  font-size:14px;
+}
+
+.action-btn .sub{
+  font-size:10px;
+  opacity:.9;
+  font-weight:500;
+}
+
+.green{background:linear-gradient(145deg,#0aa56f,#00855c);}
+.blue{background:linear-gradient(145deg,#1185df,#0769b8);}
+.orange{background:linear-gradient(145deg,#ffac22,#ed8c00);}
+.purple{background:linear-gradient(145deg,#825bd2,#6844b7);}
+.cyan{background:linear-gradient(145deg,#19a4bb,#078ba4);}
+.navy{background:linear-gradient(145deg,#12658a,#064b6d);}
+
+.stock-summary{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-top:13px;
+  overflow:hidden;
+  border-radius:14px;
+  background:var(--green-light);
+}
+
+.summary-box{
+  padding:14px;
+  text-align:center;
+}
+
+.summary-box + .summary-box{
+  border-left:1px solid #cde9df;
+}
+
+.summary-icon{
+  font-size:24px;
+}
+
+.summary-label{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.summary-value{
+  font-size:21px;
+  font-weight:800;
+  color:var(--green-dark);
+  margin-top:3px;
+}
+
+/* ================= FORMS ================= */
+
+.form-group{
+  margin-bottom:12px;
+}
+
+.form-label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:6px;
+  color:#48615a;
 }
 
 input,
-select {
-  width: 100%;
-  padding: 13px;
-  margin-bottom: 15px;
-  background: #07111f;
-  color: white;
-  border: 1px solid #29435b;
-  border-radius: 10px;
+select,
+textarea{
+  width:100%;
+  border:1px solid #d9e2de;
+  background:#fbfcfc;
+  border-radius:10px;
+  padding:12px;
+  font-size:14px;
+  outline:none;
+  color:var(--text);
 }
 
-.field-row {
-  display: flex;
-  gap: 8px;
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 2px rgba(0,143,99,.08);
 }
 
-.field-row input {
-  flex: 1;
+textarea{
+  min-height:78px;
+  resize:vertical;
 }
 
-.scan-btn {
-  flex: 0 0 105px;
-  height: 45px;
-  background: #102b38;
-  color: #31e981;
-  border: 1px solid #31e981;
-  border-radius: 10px;
-  font-weight: bold;
+.scan-row{
+  display:flex;
+  gap:7px;
 }
 
-.save {
-  width: 100%;
-  background: #31e981;
-  color: #04120a;
-  border: none;
-  border-radius: 10px;
-  padding: 14px;
-  font-weight: bold;
-  text-align: center;
+.scan-row input{
+  flex:1;
 }
 
-.bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #0a1727;
-  border-top: 1px solid #1d3147;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 8px;
-  z-index: 20;
+.scan-small{
+  width:62px;
+  border:0;
+  border-radius:10px;
+  background:var(--green);
+  color:white;
+  font-size:11px;
+  font-weight:800;
 }
 
-.bottom button {
-  border: none;
-  background: transparent;
-  color: #91a3b7;
-  text-align: center;
-  padding: 7px 2px;
-  font-size: 11px;
+.primary-btn{
+  width:100%;
+  border:0;
+  background:linear-gradient(135deg,#009a69,#007b55);
+  color:white;
+  border-radius:11px;
+  padding:14px;
+  font-size:14px;
+  font-weight:800;
+  box-shadow:0 4px 10px rgba(0,120,80,.18);
 }
 
-.scanner {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #000;
+.secondary-btn{
+  width:100%;
+  border:1px solid var(--green);
+  background:white;
+  color:var(--green-dark);
+  border-radius:11px;
+  padding:12px;
+  font-size:13px;
+  font-weight:800;
 }
 
-.scanner.active {
-  display: block;
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
-#cameraVideo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* ================= SEARCH ================= */
+
+.search-box{
+  display:flex;
+  gap:6px;
 }
 
-.scanner-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 18px;
-  background: linear-gradient(
-    rgba(0,0,0,.75),
-    transparent
-  );
-  z-index: 2;
+.search-box input{
+  flex:1;
 }
 
-.scanner-title {
-  font-size: 18px;
-  font-weight: bold;
+.search-btn{
+  width:48px;
+  border:0;
+  border-radius:10px;
+  background:var(--green);
+  color:white;
+  font-size:19px;
 }
 
-.scanner-subtitle {
-  color: #c5d1dc;
-  font-size: 12px;
-  margin-top: 4px;
+.filter-row{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  padding:2px 0 10px;
 }
 
-.scanner-controls {
-  position: absolute;
-  left: 15px;
-  right: 15px;
-  bottom: 20px;
-  z-index: 3;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.filter{
+  flex:0 0 auto;
+  border:1px solid #dbe4e0;
+  background:white;
+  border-radius:20px;
+  padding:8px 13px;
+  font-size:11px;
+  font-weight:700;
 }
 
-.scanner-controls select,
-.scanner-controls button {
-  margin: 0;
-  flex: 1;
-  min-width: 120px;
-  background: rgba(7,17,31,.92);
-  color: white;
-  border: 1px solid #31e981;
-  border-radius: 10px;
-  padding: 12px;
+.filter.active{
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
 }
 
-.close-scanner {
-  color: white !important;
-  border-color: #ffffff !important;
+.device-result{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:12px;
+  margin-bottom:9px;
+  box-shadow:0 3px 9px rgba(0,0,0,.05);
 }
 
-.scan-frame {
-  position: absolute;
-  width: 70vw;
-  max-width: 300px;
-  height: 70vw;
-  max-height: 300px;
-  border: 3px solid #31e981;
-  border-radius: 20px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 9999px rgba(0,0,0,.25);
-  z-index: 1;
+.device-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.scan-message {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  top: 72%;
-  text-align: center;
-  color: white;
-  font-size: 13px;
-  z-index: 2;
+.device-imei{
+  font-size:13px;
+  font-weight:800;
 }
 
-.status {
-  padding: 10px;
-  background: #102338;
-  border-radius: 10px;
-  color: #a9bac9;
-  font-size: 12px;
-  margin-bottom: 15px;
+.device-meta{
+  margin-top:8px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  font-size:11px;
+  color:var(--muted);
 }
 
-@media (min-width: 650px) {
-  .stats,
-  .actions {
-    grid-template-columns: repeat(4, 1fr);
+.badge{
+  display:inline-block;
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:10px;
+  font-weight:800;
+}
+
+.badge.green-b{
+  background:#dff7ed;
+  color:#00845b;
+}
+
+.badge.blue-b{
+  background:#e2f0ff;
+  color:#0870c5;
+}
+
+.badge.orange-b{
+  background:#fff0d4;
+  color:#b36b00;
+}
+
+.badge.red-b{
+  background:#ffe3e3;
+  color:#c82424;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-total{
+  background:white;
+  border-radius:17px;
+  padding:16px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:13px;
+}
+
+.total-icon{
+  width:48px;
+  height:48px;
+  background:var(--green-light);
+  color:var(--green);
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+}
+
+.total-label{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.total-number{
+  font-size:25px;
+  font-weight:900;
+}
+
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.stat-card{
+  border-radius:14px;
+  padding:14px;
+  background:white;
+  box-shadow:var(--shadow);
+}
+
+.stat-icon{
+  font-size:23px;
+}
+
+.stat-name{
+  margin-top:7px;
+  font-size:11px;
+  color:var(--muted);
+}
+
+.stat-number{
+  font-size:21px;
+  font-weight:900;
+  margin-top:2px;
+}
+
+/* ================= HISTORY ================= */
+
+.timeline{
+  position:relative;
+  padding-left:25px;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:5px;
+  bottom:5px;
+  width:2px;
+  background:#bfe3d5;
+}
+
+.timeline-item{
+  position:relative;
+  background:white;
+  border-radius:13px;
+  padding:12px;
+  margin-bottom:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+
+.timeline-dot{
+  position:absolute;
+  left:-24px;
+  top:15px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--green);
+  border:3px solid #e0f4ec;
+}
+
+.timeline-date{
+  font-size:10px;
+  color:var(--muted);
+}
+
+.timeline-title{
+  font-size:13px;
+  font-weight:800;
+  margin-top:4px;
+}
+
+.timeline-sub{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+/* ================= DEVICE DETAILS ================= */
+
+.device-photo{
+  width:65px;
+  height:65px;
+  border-radius:14px;
+  background:#f0f3f2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+}
+
+.device-header{
+  display:flex;
+  gap:13px;
+  align-items:center;
+}
+
+.detail-row{
+  display:flex;
+  justify-content:space-between;
+  padding:9px 0;
+  border-bottom:1px solid #edf1ef;
+  font-size:12px;
+}
+
+.detail-row:last-child{
+  border-bottom:0;
+}
+
+.detail-key{
+  color:var(--muted);
+}
+
+.detail-value{
+  font-weight:700;
+  text-align:right;
+}
+
+/* ================= SCANNER ================= */
+
+.scanner{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  inset:0;
+  background:#000;
+}
+
+.scanner.active{
+  display:block;
+}
+
+#cameraVideo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.scanner-top{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  padding:15px;
+  background:linear-gradient(rgba(0,0,0,.7),transparent);
+  z-index:2;
+}
+
+.scanner-title{
+  color:white;
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.scanner-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.scanner-controls select{
+  background:rgba(255,255,255,.94);
+  padding:10px;
+  font-size:11px;
+}
+
+.scanner-controls button{
+  border:0;
+  border-radius:9px;
+  padding:9px;
+  font-weight:800;
+}
+
+.scan-frame{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:72%;
+  max-width:330px;
+  height:220px;
+  transform:translate(-50%,-50%);
+  border:3px solid #00e69d;
+  border-radius:17px;
+  box-shadow:0 0 0 9999px rgba(0,0,0,.25);
+}
+
+.scan-line{
+  position:absolute;
+  left:5%;
+  right:5%;
+  top:50%;
+  height:2px;
+  background:#00e69d;
+  box-shadow:0 0 10px #00e69d;
+}
+
+.scanner-bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:18px;
+  background:linear-gradient(transparent,rgba(0,0,0,.8));
+  color:white;
+  text-align:center;
+}
+
+.scanner-message{
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.close-scanner{
+  border:0;
+  background:#e53935;
+  color:white;
+  border-radius:10px;
+  padding:12px 25px;
+  font-weight:800;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+  position:fixed;
+  z-index:100;
+  bottom:0;
+  left:0;
+  right:0;
+  height:68px;
+  background:white;
+  border-top:1px solid #dfe7e4;
+  box-shadow:0 -4px 15px rgba(0,0,0,.07);
+  display:flex;
+  justify-content:center;
+}
+
+.nav-inner{
+  width:100%;
+  max-width:600px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.nav-btn{
+  border:0;
+  background:white;
+  color:#788983;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  font-size:10px;
+  font-weight:700;
+}
+
+.nav-btn .nav-icon{
+  font-size:21px;
+}
+
+.nav-btn.active{
+  color:var(--green);
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  z-index:2000;
+  left:50%;
+  bottom:84px;
+  transform:translateX(-50%) translateY(20px);
+  background:#18352d;
+  color:white;
+  padding:12px 16px;
+  border-radius:10px;
+  font-size:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:700px){
+  body{
+    background:#eaf0ee;
+  }
+
+  .app{
+    background:var(--bg);
+    box-shadow:0 0 30px rgba(0,0,0,.08);
   }
 }
 </style>
@@ -326,931 +769,1901 @@ select {
 
 <body>
 
-<header>
-  <h1>TRAK MOTION GPS</h1>
-  <p>Inventory Management System</p>
+<div class="app">
+
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+  <div class="brand">
+    <div class="brand-logo">📍</div>
+    <div>
+      <div class="brand-name">TRAK MOTION GPS</div>
+      <div class="brand-sub">Vehicle Tracking | Inventory Management</div>
+    </div>
+  </div>
 </header>
 
-<main>
 
-<!-- DASHBOARD -->
-<section id="dashboard" class="screen active">
+<!-- ================= HOME ================= -->
 
-<h2>Dashboard</h2>
-<p class="subtitle">Welcome to TRAK MOTION GPS</p>
+<section id="homePage" class="page active">
 
-<div class="stats">
+  <div class="home-card">
 
-<div class="card">
-<div class="label">Total Inventory</div>
-<div class="number">0</div>
-</div>
+    <div class="action-grid">
 
-<div class="card">
-<div class="label">In Stock</div>
-<div class="number">0</div>
-</div>
+      <button class="action-btn green" onclick="showPage('inwardPage')">
+        <div class="icon">📦</div>
+        <div class="title">INWARD / SCAN</div>
+        <div class="sub">Add New Device</div>
+      </button>
 
-<div class="card">
-<div class="label">Installed</div>
-<div class="number">0</div>
-</div>
+      <button class="action-btn blue" onclick="showPage('dispatchPage')">
+        <div class="icon">🚚</div>
+        <div class="title">DISPATCH</div>
+        <div class="sub">Send to Dealer / Installer</div>
+      </button>
 
-<div class="card">
-<div class="label">Dispatched</div>
-<div class="number">0</div>
-</div>
+      <button class="action-btn orange" onclick="showPage('installationPage')">
+        <div class="icon">🔧</div>
+        <div class="title">INSTALLATION</div>
+        <div class="sub">Install in Vehicle</div>
+      </button>
 
-</div>
+      <button class="action-btn purple" onclick="showPage('searchPage')">
+        <div class="icon">🔍</div>
+        <div class="title">SEARCH</div>
+        <div class="sub">Find Device</div>
+      </button>
 
-<div class="section">Quick Actions</div>
+      <button class="action-btn cyan" onclick="showPage('historyPage')">
+        <div class="icon">📜</div>
+        <div class="title">HISTORY</div>
+        <div class="sub">Device Journey</div>
+      </button>
 
-<div class="actions">
+      <button class="action-btn navy" onclick="showPage('dashboardPage')">
+        <div class="icon">📊</div>
+        <div class="title">DASHBOARD</div>
+        <div class="sub">View Statistics</div>
+      </button>
 
-<button class="action" onclick="show('add')">
-<div class="icon">📦</div>
-<div class="title">Add Inventory</div>
-<div class="small">Add new GPS device</div>
-</button>
+    </div>
 
-<button class="action" onclick="show('search')">
-<div class="icon">🔍</div>
-<div class="title">Search</div>
-<div class="small">Find inventory</div>
-</button>
+    <div class="stock-summary">
 
-<button class="action" onclick="show('dispatch')">
-<div class="icon">🚚</div>
-<div class="title">Dispatch</div>
-<div class="small">Dispatch device</div>
-</button>
+      <div class="summary-box">
+        <div class="summary-icon">📦</div>
+        <div class="summary-label">Stock</div>
+        <div class="summary-value" id="homeStock">0</div>
+      </div>
 
-<button class="action" onclick="show('installation')">
-<div class="icon">🔧</div>
-<div class="title">Installation</div>
-<div class="small">Install GPS</div>
-</button>
+      <div class="summary-box">
+        <div class="summary-icon">🚗</div>
+        <div class="summary-label">Installed</div>
+        <div class="summary-value" id="homeInstalled">0</div>
+      </div>
 
-</div>
+    </div>
 
-</section>
+  </div>
 
-
-<!-- ADD INVENTORY -->
-<section id="add" class="screen">
-
-<button class="back" onclick="show('dashboard')">
-← Back
-</button>
-
-<h2>Add Inventory</h2>
-<p class="subtitle">Scan or enter device details</p>
-
-<div class="status">
-QR → IMEI &nbsp; | &nbsp; Barcode → SIM
-</div>
-
-<div class="form">
-
-<label>IMEI No. *</label>
-
-<div class="field-row">
-<input
-id="imei"
-type="text"
-inputmode="numeric"
-placeholder="Scan or enter IMEI">
-
-<button
-class="scan-btn"
-onclick="openScanner('qr')">
-📷 QR
-</button>
-</div>
-
-
-<label>SIM No. *</label>
-
-<div class="field-row">
-<input
-id="sim"
-type="text"
-placeholder="Scan or enter SIM">
-
-<button
-class="scan-btn"
-onclick="openScanner('barcode')">
-📷 BARCODE
-</button>
-</div>
-
-
-<label>Device Model *</label>
-
-<select id="deviceModel">
-<option value="">Select Device Model</option>
-<option>BR05M</option>
-<option>BR05 V5</option>
-<option>SK05</option>
-<option>OTHERS</option>
-</select>
-
-
-<label>Relay *</label>
-
-<select id="relay">
-<option value="">Select Relay</option>
-<option>12V</option>
-<option>24V</option>
-</select>
-
-
-<label>Purchase Price (₹) *</label>
-
-<input
-id="purchasePrice"
-type="number"
-min="0"
-step="0.01"
-placeholder="Enter purchase price">
-
-
-<label>Locking Status *</label>
-
-<select id="lockingStatus">
-<option value="">Select Locking Status</option>
-<option>LOCKED</option>
-<option>NOT LOCKED</option>
-</select>
-
-
-<label>Remarks</label>
-
-<input
-id="remarks"
-type="text"
-placeholder="Optional remarks">
-
-
-<button
-class="save"
-onclick="validateInventory()">
-SAVE INVENTORY
-</button>
-
-</div>
+  <div style="text-align:center;color:#83938e;font-size:10px;margin:20px 0;">
+    Powered by SLPJS Services Pvt. Ltd.
+  </div>
 
 </section>
 
 
-<!-- SEARCH -->
-<section id="search" class="screen">
+<!-- ================= INWARD ================= -->
 
-<button class="back" onclick="show('dashboard')">
-← Back
-</button>
+<section id="inwardPage" class="page">
 
-<h2>Search</h2>
-<p class="subtitle">Find GPS inventory</p>
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>INWARD / SCAN</h2>
+  </div>
 
-<div class="form">
+  <div class="card">
 
-<label>IMEI / SIM / Vehicle / Customer</label>
+    <div class="action-grid">
 
-<input
-type="text"
-placeholder="Enter search value">
+      <button class="action-btn green" style="min-height:105px"
+              onclick="openScanner('imei')">
+        <div class="icon">▦</div>
+        <div class="title">SCAN QR</div>
+        <div class="sub">IMEI + Device Details</div>
+      </button>
 
-<button class="save">
-SEARCH
-</button>
+      <button class="action-btn blue" style="min-height:105px"
+              onclick="openScanner('sim')">
+        <div class="icon">▥</div>
+        <div class="title">SCAN SIM</div>
+        <div class="sub">Barcode</div>
+      </button>
 
-</div>
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="form-group">
+      <label class="form-label">IMEI No.</label>
+
+      <div class="scan-row">
+        <input id="imeiInput"
+               type="text"
+               inputmode="numeric"
+               placeholder="Scan or enter IMEI"
+               autocomplete="off">
+
+        <button class="scan-small"
+                onclick="openScanner('imei')">📷 QR</button>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">SIM No.</label>
+
+      <div class="scan-row">
+        <input id="simInput"
+               type="text"
+               placeholder="Scan or enter SIM number"
+               autocomplete="off">
+
+        <button class="scan-small"
+                onclick="openScanner('sim')">📷 BAR</button>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Device Model</label>
+
+      <select id="modelInput">
+        <option value="">Select Device Model</option>
+        <option>BR05M</option>
+        <option>BR05 V5</option>
+        <option>SK05</option>
+        <option>OTHERS</option>
+      </select>
+    </div>
+
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label class="form-label">Relay</label>
+
+        <select id="relayInput">
+          <option value="">Select Relay</option>
+          <option>12V</option>
+          <option>24V</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label class="form-label">Purchase Price (₹)</label>
+
+        <input id="priceInput"
+               type="number"
+               min="0"
+               step="0.01"
+               placeholder="Enter price">
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Locking Status</label>
+
+      <select id="lockingInput">
+        <option value="">Select Locking Status</option>
+        <option>LOCKED</option>
+        <option>NOT LOCKED</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Remarks (Optional)</label>
+
+      <textarea id="remarksInput"
+                placeholder="Enter any remarks..."></textarea>
+    </div>
+
+
+    <button class="primary-btn" onclick="saveInventory()">
+      💾 SAVE INVENTORY
+    </button>
+
+  </div>
+
+  <div class="card" style="text-align:center;background:#e8f8f2;">
+
+    <div style="font-size:11px;color:#607871;">
+      Status:
+      <strong style="color:#00855c;">IN STOCK</strong>
+      &nbsp; | &nbsp;
+      S.No:
+      <strong>Auto</strong>
+    </div>
+
+    <div style="font-size:10px;color:#80918b;margin-top:6px;">
+      Date & Time: Auto
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- DISPATCH -->
-<section id="dispatch" class="screen">
+<!-- ================= DISPATCH ================= -->
 
-<button class="back" onclick="show('dashboard')">
-← Back
-</button>
+<section id="dispatchPage" class="page">
 
-<h2>Dispatch</h2>
-<p class="subtitle">Dispatch GPS device</p>
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>DISPATCH</h2>
+  </div>
 
-<div class="form">
+  <div class="card">
 
-<label>IMEI No.</label>
-<input type="text" placeholder="Enter IMEI">
+    <div class="form-group">
 
-<label>Party Type</label>
+      <label class="form-label">Enter IMEI Last 4/5/6 Digits</label>
 
-<select>
-<option>Select Party Type</option>
-<option>DEALER</option>
-<option>DISTRIBUTOR</option>
-<option>INSTALLER</option>
-<option>CAR MECHANIC</option>
-<option>CAR ACCESSORIES</option>
-</select>
+      <div class="search-box">
 
-<label>Party Name</label>
-<input type="text" placeholder="Enter party name">
+        <input id="dispatchSearch"
+               type="text"
+               inputmode="numeric"
+               placeholder="e.g. 2345">
 
-<button class="save">
-DISPATCH
-</button>
+        <button class="search-btn"
+                onclick="searchForDispatch()">🔍</button>
 
-</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="dispatchDeviceCard" class="card" style="display:none;">
+
+    <div class="section-title">Device Details (Auto Fetched)</div>
+
+    <div class="detail-row">
+      <span class="detail-key">Full IMEI</span>
+      <span class="detail-value" id="dispatchIMEI">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">SIM No.</span>
+      <span class="detail-value" id="dispatchSIM">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Device Model</span>
+      <span class="detail-value" id="dispatchModel">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Relay</span>
+      <span class="detail-value" id="dispatchRelay">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">SIM Status</span>
+      <span class="detail-value" id="dispatchSIMStatus">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Current Status</span>
+      <span class="badge green-b" id="dispatchStatus">IN STOCK</span>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="section-title">Delivery Details</div>
+
+    <div class="form-group">
+      <label class="form-label">Party Type</label>
+
+      <select id="partyType">
+        <option value="">Select Party Type</option>
+        <option>DEALER</option>
+        <option>DISTRIBUTOR</option>
+        <option>INSTALLER</option>
+        <option>CAR MECHANIC</option>
+        <option>CAR ACCESSORIES</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Party Name</label>
+
+      <input id="partyName"
+             type="text"
+             placeholder="Enter party name">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Party Mobile</label>
+
+      <input id="partyMobile"
+             type="text"
+             inputmode="tel"
+             placeholder="Enter mobile number">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Dispatch Amount (₹)</label>
+
+      <input id="dispatchAmount"
+             type="number"
+             min="0"
+             step="0.01"
+             placeholder="Enter amount">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Remarks</label>
+
+      <textarea id="dispatchRemarks"
+                placeholder="Enter remarks..."></textarea>
+    </div>
+
+
+    <button class="primary-btn" onclick="confirmDispatch()">
+      🚚 CONFIRM DISPATCH
+    </button>
+
+  </div>
 
 </section>
 
 
-<!-- INSTALLATION -->
-<section id="installation" class="screen">
+<!-- ================= INSTALLATION ================= -->
 
-<button class="back" onclick="show('dashboard')">
-← Back
-</button>
+<section id="installationPage" class="page">
 
-<h2>Installation</h2>
-<p class="subtitle">Install GPS device</p>
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>INSTALLATION</h2>
+  </div>
 
-<div class="form">
 
-<label>IMEI No.</label>
-<input type="text" placeholder="Enter IMEI">
+  <div class="card">
 
-<label>Installer Name</label>
-<input type="text" placeholder="Enter installer name">
+    <div class="form-group">
 
-<label>Customer Name</label>
-<input type="text" placeholder="Enter customer name">
+      <label class="form-label">Enter IMEI Last 4/5/6 Digits</label>
 
-<label>Vehicle No.</label>
-<input type="text" placeholder="Enter vehicle number">
+      <div class="search-box">
 
-<label>Installation Status</label>
+        <input id="installSearch"
+               type="text"
+               inputmode="numeric"
+               placeholder="e.g. 2345">
 
-<select>
-<option>Select Status</option>
-<option>PENDING</option>
-<option>INSTALLED</option>
-<option>REPLACED</option>
-<option>REMOVED</option>
-</select>
+        <button class="search-btn"
+                onclick="searchForInstallation()">🔍</button>
 
-<button class="save">
-SAVE INSTALLATION
-</button>
+      </div>
 
-</div>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="section-title">Device Details (Auto Fetched)</div>
+
+    <div class="detail-row">
+      <span class="detail-key">Full IMEI</span>
+      <span class="detail-value" id="installIMEI">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">SIM No.</span>
+      <span class="detail-value" id="installSIM">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Device Model</span>
+      <span class="detail-value" id="installModel">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Relay</span>
+      <span class="detail-value" id="installRelay">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">SIM Status</span>
+      <span class="badge green-b" id="installSIMStatus">ACTIVE</span>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="section-title">Installation Details</div>
+
+    <div class="form-group">
+      <label class="form-label">Installer</label>
+
+      <select id="installerInput">
+        <option value="">Select Installer</option>
+        <option>ADD NEW INSTALLER</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Customer Name</label>
+
+      <input id="customerName"
+             type="text"
+             placeholder="Enter customer name">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Customer Mobile</label>
+
+      <input id="customerMobile"
+             type="text"
+             inputmode="tel"
+             placeholder="Enter mobile number">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Vehicle No.</label>
+
+      <input id="vehicleNo"
+             type="text"
+             placeholder="e.g. BR01AB1234"
+             style="text-transform:uppercase;">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Installation Status</label>
+
+      <select id="installationStatus">
+        <option value="">Select Status</option>
+        <option>PENDING</option>
+        <option>INSTALLED</option>
+        <option>REPLACED</option>
+        <option>REMOVED</option>
+      </select>
+    </div>
+
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label class="form-label">GPS Sale Price (₹)</label>
+
+        <input id="gpsSalePrice"
+               type="number"
+               min="0"
+               step="0.01"
+               placeholder="Enter amount">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Installation Price (₹)</label>
+
+        <input id="installationPrice"
+               type="number"
+               min="0"
+               step="0.01"
+               placeholder="Enter amount">
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Installer Share Amount (₹)</label>
+
+      <input id="installerShare"
+             type="number"
+             min="0"
+             step="0.01"
+             placeholder="Enter amount">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-label">Remarks</label>
+
+      <textarea id="installationRemarks"
+                placeholder="Enter remarks..."></textarea>
+    </div>
+
+
+    <button class="primary-btn" onclick="saveInstallation()">
+      🔧 SAVE INSTALLATION
+    </button>
+
+  </div>
 
 </section>
 
-</main>
+
+<!-- ================= SEARCH ================= -->
+
+<section id="searchPage" class="page">
+
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>SEARCH</h2>
+  </div>
 
 
-<!-- BOTTOM NAV -->
+  <div class="card">
 
-<nav class="bottom">
+    <div class="search-box">
 
-<button onclick="show('dashboard')">
-🏠<br>Dashboard
-</button>
+      <input id="mainSearch"
+             type="text"
+             placeholder="IMEI / SIM / Vehicle / Customer / Name">
 
-<button onclick="show('add')">
-📦<br>Inventory
-</button>
+      <button class="search-btn"
+              onclick="performSearch()">🔍</button>
 
-<button onclick="show('search')">
-🔍<br>Search
-</button>
+    </div>
 
-<button onclick="show('dashboard')">
-☰<br>More
-</button>
+  </div>
+
+
+  <div class="filter-row">
+
+    <button class="filter active" onclick="setFilter(this,'ALL')">All</button>
+    <button class="filter" onclick="setFilter(this,'IMEI')">IMEI</button>
+    <button class="filter" onclick="setFilter(this,'SIM')">SIM</button>
+    <button class="filter" onclick="setFilter(this,'VEHICLE')">Vehicle</button>
+    <button class="filter" onclick="setFilter(this,'CUSTOMER')">Customer</button>
+    <button class="filter" onclick="setFilter(this,'DEALER')">Dealer</button>
+    <button class="filter" onclick="setFilter(this,'INSTALLER')">Installer</button>
+
+  </div>
+
+
+  <div class="card">
+
+    <div style="font-size:12px;font-weight:800;margin-bottom:10px;">
+      Results
+      <span id="resultCount" style="color:var(--muted);">(0)</span>
+    </div>
+
+    <div id="searchResults">
+
+      <div style="text-align:center;color:#899791;font-size:12px;padding:25px 5px;">
+        Search for a device to see results.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= HISTORY ================= -->
+
+<section id="historyPage" class="page">
+
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>DEVICE HISTORY</h2>
+  </div>
+
+
+  <div class="card">
+
+    <div class="search-box">
+
+      <input id="historySearch"
+             type="text"
+             inputmode="numeric"
+             placeholder="Enter IMEI last 4/5/6 digits">
+
+      <button class="search-btn"
+              onclick="searchHistory()">🔍</button>
+
+    </div>
+
+  </div>
+
+
+  <div class="timeline" id="historyTimeline">
+
+    <div class="timeline-item">
+
+      <div class="timeline-dot"></div>
+
+      <div class="timeline-date">
+        Device history will appear here
+      </div>
+
+      <div class="timeline-title">
+        Search an IMEI
+      </div>
+
+      <div class="timeline-sub">
+        Complete device journey will be displayed chronologically.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboardPage" class="page">
+
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>DASHBOARD</h2>
+  </div>
+
+
+  <div class="dashboard-total">
+
+    <div class="total-icon">📦</div>
+
+    <div>
+      <div class="total-label">TOTAL GPS</div>
+      <div class="total-number" id="totalGPS">0</div>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="section-title">Stock Summary</div>
+
+    <div class="dashboard-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-name">IN STOCK</div>
+        <div class="stat-number" id="dashStock">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🚚</div>
+        <div class="stat-name">DELIVERED</div>
+        <div class="stat-number" id="dashDelivered">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">👤</div>
+        <div class="stat-name">INSTALLED</div>
+        <div class="stat-number" id="dashInstalled">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-name">RETURNED</div>
+        <div class="stat-number" id="dashReturned">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">⚠️</div>
+        <div class="stat-name">DAMAGED</div>
+        <div class="stat-number" id="dashDamaged">0</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="section-title">SIM Status</div>
+
+    <div class="dashboard-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">🟢</div>
+        <div class="stat-name">ACTIVE</div>
+        <div class="stat-number">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🟡</div>
+        <div class="stat-name">INACTIVE</div>
+        <div class="stat-number">0</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🔴</div>
+        <div class="stat-name">EXPIRED</div>
+        <div class="stat-number">0</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DEVICE DETAILS ================= -->
+
+<section id="detailsPage" class="page">
+
+  <div class="page-title">
+    <button class="back-btn" onclick="goHome()">‹</button>
+    <h2>DEVICE DETAILS</h2>
+  </div>
+
+
+  <div class="card">
+
+    <div class="device-header">
+
+      <div class="device-photo">📡</div>
+
+      <div style="flex:1;">
+
+        <div class="detail-row">
+          <span class="detail-key">IMEI</span>
+          <span class="detail-value" id="detailIMEI">-</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-key">SIM</span>
+          <span class="detail-value" id="detailSIM">-</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-key">Model</span>
+          <span class="detail-value" id="detailModel">-</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="detail-row">
+      <span class="detail-key">Relay</span>
+      <span class="detail-value" id="detailRelay">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">SIM Status</span>
+      <span class="detail-value" id="detailSIMStatus">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Vehicle No.</span>
+      <span class="detail-value" id="detailVehicle">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Customer</span>
+      <span class="detail-value" id="detailCustomer">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Mobile</span>
+      <span class="detail-value" id="detailMobile">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Installer</span>
+      <span class="detail-value" id="detailInstaller">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Dealer</span>
+      <span class="detail-value" id="detailDealer">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Installation Date</span>
+      <span class="detail-value" id="detailInstallDate">-</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-key">Remarks</span>
+      <span class="detail-value" id="detailRemarks">-</span>
+    </div>
+
+  </div>
+
+
+  <button class="secondary-btn" onclick="goHome()">
+    ↩ BACK
+  </button>
+
+</section>
+
+</div>
+
+
+<!-- ================= SCANNER ================= -->
+
+<div id="scanner" class="scanner">
+
+  <video id="cameraVideo"
+         autoplay
+         playsinline
+         muted></video>
+
+
+  <div class="scanner-top">
+
+    <div class="scanner-title">
+      📷 <span id="scannerModeTitle">SCAN QR</span>
+    </div>
+
+    <div class="scanner-controls">
+
+      <select id="cameraSelect"
+              onchange="switchCamera()">
+        <option value="">Camera</option>
+      </select>
+
+      <select id="zoomSelect"
+              onchange="applyZoom()">
+        <option value="">Zoom</option>
+      </select>
+
+      <button onclick="loadCameras()">
+        🔄 Camera
+      </button>
+
+      <button onclick="closeScanner()">
+        ✕ CLOSE
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="scan-frame">
+    <div class="scan-line"></div>
+  </div>
+
+
+  <div class="scanner-bottom">
+
+    <div class="scanner-message" id="scannerMessage">
+      Point the camera at the code.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav class="bottom-nav">
+
+  <div class="nav-inner">
+
+    <button class="nav-btn active"
+            onclick="showPage('homePage')">
+
+      <div class="nav-icon">⌂</div>
+      Home
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showPage('historyPage')">
+
+      <div class="nav-icon">◷</div>
+      History
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showPage('searchPage')">
+
+      <div class="nav-icon">⌕</div>
+      Search
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showPage('dashboardPage')">
+
+      <div class="nav-icon">▥</div>
+      Dashboard
+
+    </button>
+
+  </div>
 
 </nav>
 
 
-<!-- SCANNER -->
-
-<div id="scanner" class="scanner">
-
-<video
-id="cameraVideo"
-playsinline
-autoplay
-muted>
-</video>
-
-<div class="scan-frame"></div>
-
-<div class="scanner-top">
-
-<div class="scanner-title" id="scannerTitle">
-QR Scanner
-</div>
-
-<div class="scanner-subtitle">
-Keep the code inside the box
-</div>
-
-</div>
-
-<div class="scan-message" id="scanMessage">
-Starting camera...
-</div>
-
-<div class="scanner-controls">
-
-<select id="cameraSelect">
-<option value="">Selecting camera...</option>
-</select>
-
-<select id="zoomSelect">
-<option value="">Zoom</option>
-</select>
-
-<button onclick="switchCamera()">
-🔄 Camera
-</button>
-
-<button
-class="close-scanner"
-onclick="closeScanner()">
-✕ CLOSE
-</button>
-
-</div>
-
-</div>
+<div id="toast" class="toast"></div>
 
 
 <script>
 
-let scannerMode = "";
-let stream = null;
-let videoTrack = null;
-let scanTimer = null;
+/* =========================================================
+   BASIC NAVIGATION
+========================================================= */
+
+let currentPage = "homePage";
+
+function showPage(pageId){
+
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.remove("active");
+  });
+
+  const page=document.getElementById(pageId);
+
+  if(page){
+    page.classList.add("active");
+    currentPage=pageId;
+    window.scrollTo(0,0);
+  }
+
+  updateBottomNav(pageId);
+}
 
 
-/* SCREEN NAVIGATION */
+function goHome(){
+  showPage("homePage");
+}
 
-function show(id) {
 
-document.querySelectorAll(".screen").forEach(function(screen) {
-screen.classList.remove("active");
+function updateBottomNav(pageId){
+
+  document.querySelectorAll(".nav-btn").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  if(pageId==="homePage"){
+    document.querySelectorAll(".nav-btn")[0].classList.add("active");
+  }
+
+  if(pageId==="historyPage"){
+    document.querySelectorAll(".nav-btn")[1].classList.add("active");
+  }
+
+  if(pageId==="searchPage"){
+    document.querySelectorAll(".nav-btn")[2].classList.add("active");
+  }
+
+  if(pageId==="dashboardPage"){
+    document.querySelectorAll(".nav-btn")[3].classList.add("active");
+  }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function toast(message){
+
+  const el=document.getElementById("toast");
+
+  el.textContent=message;
+  el.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(()=>{
+    el.classList.remove("show");
+  },2600);
+}
+
+
+/* =========================================================
+   SCANNER
+========================================================= */
+
+let scannerMode="imei";
+let cameraStream=null;
+let cameraTrack=null;
+let scanTimer=null;
+let scanning=false;
+
+
+async function openScanner(mode){
+
+  scannerMode=mode;
+
+  document.getElementById("scanner").classList.add("active");
+
+  document.getElementById("scannerModeTitle").textContent =
+    mode==="imei" ? "SCAN QR — IMEI" : "SCAN BARCODE — SIM";
+
+  document.getElementById("scannerMessage").textContent =
+    mode==="imei"
+      ? "Point the camera at the IMEI QR code."
+      : "Point the camera at the SIM barcode.";
+
+  await startCamera();
+
+}
+
+
+async function startCamera(deviceId=""){
+
+  stopCamera(false);
+
+  if(!navigator.mediaDevices ||
+     !navigator.mediaDevices.getUserMedia){
+
+    document.getElementById("scannerMessage").textContent =
+      "Camera is not supported by this browser.";
+
+    return;
+  }
+
+  try{
+
+    const constraints={
+      video:{
+        facingMode:{ideal:"environment"},
+        width:{ideal:1920},
+        height:{ideal:1080}
+      },
+      audio:false
+    };
+
+    if(deviceId){
+      constraints.video={
+        deviceId:{exact:deviceId},
+        width:{ideal:1920},
+        height:{ideal:1080}
+      };
+    }
+
+    cameraStream=
+      await navigator.mediaDevices.getUserMedia(constraints);
+
+    const video=document.getElementById("cameraVideo");
+
+    video.srcObject=cameraStream;
+
+    cameraTrack=cameraStream.getVideoTracks()[0];
+
+    await video.play();
+
+    await loadCameras();
+
+    loadZoom();
+
+    startDetection();
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById("scannerMessage").textContent =
+      "Camera access failed. Please allow camera permission.";
+
+  }
+
+}
+
+
+async function loadCameras(){
+
+  try{
+
+    const devices=
+      await navigator.mediaDevices.enumerateDevices();
+
+    const cameras=
+      devices.filter(device=>
+        device.kind==="videoinput"
+      );
+
+    const select=
+      document.getElementById("cameraSelect");
+
+    const current=
+      select.value;
+
+    select.innerHTML="";
+
+    cameras.forEach((camera,index)=>{
+
+      const option=document.createElement("option");
+
+      option.value=camera.deviceId;
+
+      let label=camera.label;
+
+      if(!label){
+        label="Camera "+(index+1);
+      }
+
+      option.textContent=label;
+
+      select.appendChild(option);
+
+    });
+
+    if(current){
+      select.value=current;
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+async function switchCamera(){
+
+  const select=
+    document.getElementById("cameraSelect");
+
+  if(!select.value){
+    return;
+  }
+
+  await startCamera(select.value);
+
+}
+
+
+function loadZoom(){
+
+  const select=
+    document.getElementById("zoomSelect");
+
+  select.innerHTML="";
+
+  if(!cameraTrack){
+
+    select.innerHTML=
+      '<option value="">Zoom unavailable</option>';
+
+    return;
+  }
+
+  const capabilities=
+    cameraTrack.getCapabilities ?
+    cameraTrack.getCapabilities() :
+    {};
+
+  if(!capabilities.zoom){
+
+    select.innerHTML=
+      '<option value="">Zoom unavailable</option>';
+
+    return;
+  }
+
+  const min=capabilities.zoom.min;
+  const max=capabilities.zoom.max;
+  const step=capabilities.zoom.step || 0.1;
+
+  let values=[];
+
+  /* Try to expose 1x first */
+  if(min<=1 && max>=1){
+    values.push(1);
+  }
+
+  for(
+    let value=min;
+    value<=max;
+    value+=step
+  ){
+
+    const rounded=
+      Math.round(value*10)/10;
+
+    if(
+      rounded>=min &&
+      rounded<=max &&
+      !values.includes(rounded)
+    ){
+      values.push(rounded);
+    }
+
+  }
+
+  values.sort((a,b)=>a-b);
+
+  values.forEach(value=>{
+
+    const option=document.createElement("option");
+
+    option.value=value;
+    option.textContent=value+"×";
+
+    select.appendChild(option);
+
+  });
+
+  if(values.includes(1)){
+    select.value="1";
+    applyZoom();
+  }
+
+}
+
+
+async function applyZoom(){
+
+  if(!cameraTrack){
+    return;
+  }
+
+  const select=
+    document.getElementById("zoomSelect");
+
+  const value=parseFloat(select.value);
+
+  if(!Number.isFinite(value)){
+    return;
+  }
+
+  try{
+
+    await cameraTrack.applyConstraints({
+      advanced:[
+        {zoom:value}
+      ]
+    });
+
+  }catch(error){
+
+    console.log("Zoom not supported:",error);
+
+  }
+
+}
+
+
+function startDetection(){
+
+  if(scanning){
+    return;
+  }
+
+  scanning=true;
+
+  if("BarcodeDetector" in window){
+
+    detectWithBarcodeDetector();
+
+  }else{
+
+    document.getElementById("scannerMessage").textContent =
+      "Camera opened, but this browser does not support built-in barcode scanning.";
+
+  }
+
+}
+
+
+async function detectWithBarcodeDetector(){
+
+  if(!scanning){
+    return;
+  }
+
+  const formats=[
+    "qr_code",
+    "code_128",
+    "code_39",
+    "code_93",
+    "ean_13",
+    "ean_8",
+    "upc_a",
+    "upc_e",
+    "itf"
+  ];
+
+  let detector;
+
+  try{
+
+    detector=
+      new BarcodeDetector({formats});
+
+  }catch(error){
+
+    detector=
+      new BarcodeDetector();
+
+  }
+
+  const video=
+    document.getElementById("cameraVideo");
+
+  try{
+
+    const results=
+      await detector.detect(video);
+
+    if(results && results.length){
+
+      handleScanResult(
+        results[0].rawValue || ""
+      );
+
+      return;
+    }
+
+  }catch(error){
+
+    console.log("Detection:",error);
+
+  }
+
+  scanTimer=
+    setTimeout(
+      detectWithBarcodeDetector,
+      250
+    );
+
+}
+
+
+function handleScanResult(value){
+
+  value=String(value || "").trim();
+
+  if(!value){
+    return;
+  }
+
+  if(scannerMode==="imei"){
+
+    const imei=
+      value.replace(/\s/g,"");
+
+    /*
+      IMEI rule:
+      numbers only
+      more than 10 digits
+    */
+
+    if(!/^\d+$/.test(imei) || imei.length<=10){
+
+      document.getElementById("scannerMessage").textContent =
+        "Invalid IMEI QR. QR must contain IMEI numbers only.";
+
+      return;
+    }
+
+    document.getElementById("imeiInput").value=imei;
+
+    toast("IMEI scanned successfully");
+
+  }else{
+
+    /*
+      SIM barcode:
+      accepts alphanumeric / special characters
+      exactly as scanned
+    */
+
+    document.getElementById("simInput").value=value;
+
+    toast("SIM barcode scanned successfully");
+
+  }
+
+  closeScanner();
+
+}
+
+
+function stopCamera(reset=true){
+
+  scanning=false;
+
+  if(scanTimer){
+    clearTimeout(scanTimer);
+    scanTimer=null;
+  }
+
+  if(cameraStream){
+
+    cameraStream.getTracks().forEach(track=>{
+      track.stop();
+    });
+
+    cameraStream=null;
+  }
+
+  cameraTrack=null;
+
+  if(reset){
+
+    const video=
+      document.getElementById("cameraVideo");
+
+    video.srcObject=null;
+  }
+
+}
+
+
+function closeScanner(){
+
+  stopCamera();
+
+  document.getElementById("scanner")
+    .classList.remove("active");
+
+}
+
+
+/* =========================================================
+   INVENTORY VALIDATION
+========================================================= */
+
+function saveInventory(){
+
+  const imei=
+    document.getElementById("imeiInput").value.trim();
+
+  const sim=
+    document.getElementById("simInput").value.trim();
+
+  const model=
+    document.getElementById("modelInput").value;
+
+  const relay=
+    document.getElementById("relayInput").value;
+
+  const price=
+    document.getElementById("priceInput").value;
+
+  const locking=
+    document.getElementById("lockingInput").value;
+
+  const remarks=
+    document.getElementById("remarksInput").value.trim();
+
+
+  if(!imei){
+
+    toast("IMEI is required");
+    return;
+  }
+
+  if(!/^\d+$/.test(imei) || imei.length<=10){
+
+    toast("Invalid IMEI");
+    return;
+  }
+
+  if(!sim){
+
+    toast("SIM number is required");
+    return;
+  }
+
+  if(!model){
+
+    toast("Select Device Model");
+    return;
+  }
+
+  if(!relay){
+
+    toast("Select Relay");
+    return;
+  }
+
+  if(price==="" ||
+     Number(price)<0){
+
+    toast("Enter a valid Purchase Price");
+    return;
+  }
+
+  if(!locking){
+
+    toast("Select Locking Status");
+    return;
+  }
+
+
+  /*
+    Backend connection will be added after
+    the frontend design is confirmed.
+  */
+
+  toast("Inventory form validated successfully");
+
+  console.log({
+    imei,
+    sim,
+    model,
+    relay,
+    price,
+    locking,
+    remarks
+  });
+
+}
+
+
+/* =========================================================
+   DISPATCH
+========================================================= */
+
+function searchForDispatch(){
+
+  const value=
+    document.getElementById("dispatchSearch").value.trim();
+
+  if(!value){
+
+    toast("Enter IMEI digits");
+    return;
+  }
+
+  /*
+    Temporary UI preview.
+    Backend search will be connected next.
+  */
+
+  document.getElementById("dispatchDeviceCard")
+    .style.display="block";
+
+  document.getElementById("dispatchIMEI")
+    .textContent="Waiting for backend";
+
+  document.getElementById("dispatchSIM")
+    .textContent="-";
+
+  document.getElementById("dispatchModel")
+    .textContent="-";
+
+  document.getElementById("dispatchRelay")
+    .textContent="-";
+
+  document.getElementById("dispatchSIMStatus")
+    .textContent="-";
+
+  document.getElementById("dispatchStatus")
+    .textContent="IN STOCK";
+
+}
+
+
+function confirmDispatch(){
+
+  const partyType=
+    document.getElementById("partyType").value;
+
+  const partyName=
+    document.getElementById("partyName").value.trim();
+
+  const partyMobile=
+    document.getElementById("partyMobile").value.trim();
+
+  const amount=
+    document.getElementById("dispatchAmount").value;
+
+
+  if(!partyType){
+
+    toast("Select Party Type");
+    return;
+  }
+
+  if(!partyName){
+
+    toast("Enter Party Name");
+    return;
+  }
+
+  if(!partyMobile){
+
+    toast("Enter Party Mobile");
+    return;
+  }
+
+  if(amount==="" || Number(amount)<0){
+
+    toast("Enter Dispatch Amount");
+    return;
+  }
+
+  toast("Dispatch form validated");
+
+}
+
+
+/* =========================================================
+   INSTALLATION
+========================================================= */
+
+function searchForInstallation(){
+
+  const value=
+    document.getElementById("installSearch").value.trim();
+
+  if(!value){
+
+    toast("Enter IMEI digits");
+    return;
+  }
+
+  document.getElementById("installIMEI")
+    .textContent="Waiting for backend";
+
+  document.getElementById("installSIM")
+    .textContent="-";
+
+  document.getElementById("installModel")
+    .textContent="-";
+
+  document.getElementById("installRelay")
+    .textContent="-";
+
+  document.getElementById("installSIMStatus")
+    .textContent="ACTIVE";
+
+}
+
+
+function saveInstallation(){
+
+  const installer=
+    document.getElementById("installerInput").value;
+
+  const customer=
+    document.getElementById("customerName").value.trim();
+
+  const mobile=
+    document.getElementById("customerMobile").value.trim();
+
+  const vehicle=
+    document.getElementById("vehicleNo").value.trim();
+
+  const status=
+    document.getElementById("installationStatus").value;
+
+
+  if(!installer){
+
+    toast("Select Installer");
+    return;
+  }
+
+  if(!customer){
+
+    toast("Enter Customer Name");
+    return;
+  }
+
+  if(!mobile){
+
+    toast("Enter Customer Mobile");
+    return;
+  }
+
+  if(!vehicle){
+
+    toast("Enter Vehicle No.");
+    return;
+  }
+
+  if(!status){
+
+    toast("Select Installation Status");
+    return;
+  }
+
+  toast("Installation form validated");
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+let activeFilter="ALL";
+
+
+function setFilter(button,filter){
+
+  document.querySelectorAll(".filter")
+    .forEach(item=>{
+      item.classList.remove("active");
+    });
+
+  button.classList.add("active");
+
+  activeFilter=filter;
+
+}
+
+
+function performSearch(){
+
+  const query=
+    document.getElementById("mainSearch").value.trim();
+
+  if(!query){
+
+    toast("Enter search value");
+    return;
+  }
+
+  const container=
+    document.getElementById("searchResults");
+
+  container.innerHTML="";
+
+  const result=
+    document.createElement("div");
+
+  result.className="device-result";
+
+  result.innerHTML=`
+
+    <div class="device-top">
+
+      <div class="device-imei">
+        Search: ${escapeHTML(query)}
+      </div>
+
+      <span class="badge blue-b">
+        SEARCH
+      </span>
+
+    </div>
+
+    <div class="device-meta">
+
+      <div>
+        IMEI:
+        <strong>Backend pending</strong>
+      </div>
+
+      <div>
+        SIM:
+        <strong>-</strong>
+      </div>
+
+      <div>
+        Vehicle:
+        <strong>-</strong>
+      </div>
+
+      <div>
+        Status:
+        <strong>-</strong>
+      </div>
+
+    </div>
+
+  `;
+
+  container.appendChild(result);
+
+  document.getElementById("resultCount")
+    .textContent="(1)";
+
+}
+
+
+function searchHistory(){
+
+  const value=
+    document.getElementById("historySearch").value.trim();
+
+  if(!value){
+
+    toast("Enter IMEI digits");
+    return;
+  }
+
+  document.getElementById("historyTimeline").innerHTML=`
+
+    <div class="timeline-item">
+
+      <div class="timeline-dot"></div>
+
+      <div class="timeline-date">
+        Search: ${escapeHTML(value)}
+      </div>
+
+      <div class="timeline-title">
+        Waiting for backend history
+      </div>
+
+      <div class="timeline-sub">
+        Complete IN STOCK → DISPATCHED → DELIVERED →
+        INSTALLED / RETURNED journey will appear here.
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+  showPage("homePage");
+
+  /*
+    Camera permission is NOT requested on page load.
+    It is requested only when user presses SCAN QR / SCAN SIM.
+  */
+
 });
-
-const target = document.getElementById(id);
-
-if (target) {
-target.classList.add("active");
-}
-
-window.scrollTo(0, 0);
-}
-
-
-/* INVENTORY VALIDATION */
-
-function validateInventory() {
-
-const imei =
-document.getElementById("imei").value.trim();
-
-const sim =
-document.getElementById("sim").value.trim();
-
-const model =
-document.getElementById("deviceModel").value;
-
-const relay =
-document.getElementById("relay").value;
-
-const price =
-document.getElementById("purchasePrice").value;
-
-const locking =
-document.getElementById("lockingStatus").value;
-
-
-if (!imei) {
-alert("IMEI No. is required.");
-return;
-}
-
-if (!/^[0-9]+$/.test(imei) || imei.length <= 10) {
-alert("Invalid IMEI — numbers only and more than 10 digits.");
-return;
-}
-
-if (!sim) {
-alert("SIM No. is required.");
-return;
-}
-
-if (!model) {
-alert("Please select Device Model.");
-return;
-}
-
-if (!relay) {
-alert("Please select Relay.");
-return;
-}
-
-if (price === "" || Number(price) < 0) {
-alert("Please enter a valid Purchase Price.");
-return;
-}
-
-if (!locking) {
-alert("Please select Locking Status.");
-return;
-}
-
-alert(
-"Inventory form validated successfully.\n\n" +
-"Google Sheets connection will be added next."
-);
-}
-
-
-/* OPEN SCANNER */
-
-async function openScanner(mode) {
-
-scannerMode = mode;
-
-const scanner =
-document.getElementById("scanner");
-
-const title =
-document.getElementById("scannerTitle");
-
-const message =
-document.getElementById("scanMessage");
-
-if (mode === "qr") {
-title.textContent = "QR Scanner — IMEI";
-} else {
-title.textContent = "Barcode Scanner — SIM";
-}
-
-message.textContent = "Requesting camera permission...";
-
-scanner.classList.add("active");
-
-try {
-
-await startCamera();
-
-} catch (error) {
-
-console.error(error);
-
-message.textContent =
-"Camera could not be started. Please allow camera permission.";
-
-}
-
-}
-
-
-/* START CAMERA */
-
-async function startCamera(deviceId = null) {
-
-stopCamera();
-
-const constraints = {
-
-audio: false,
-
-video: deviceId
-? {
-deviceId: {
-exact: deviceId
-},
-width: {
-ideal: 1920
-},
-height: {
-ideal: 1080
-}
-}
-: {
-facingMode: {
-ideal: "environment"
-},
-width: {
-ideal: 1920
-},
-height: {
-ideal: 1080
-}
-}
-
-};
-
-
-stream =
-await navigator.mediaDevices.getUserMedia(
-constraints
-);
-
-const video =
-document.getElementById("cameraVideo");
-
-video.srcObject = stream;
-
-await video.play();
-
-videoTrack =
-stream.getVideoTracks()[0];
-
-await loadCameras();
-
-loadZoom();
-
-document.getElementById("scanMessage").textContent =
-"Point the camera at the code";
-
-startDetection();
-
-}
-
-
-/* CAMERA LIST */
-
-async function loadCameras() {
-
-const select =
-document.getElementById("cameraSelect");
-
-const devices =
-await navigator.mediaDevices.enumerateDevices();
-
-const cameras =
-devices.filter(function(device) {
-return device.kind === "videoinput";
-});
-
-select.innerHTML = "";
-
-cameras.forEach(function(camera, index) {
-
-const option =
-document.createElement("option");
-
-option.value = camera.deviceId;
-
-option.textContent =
-camera.label ||
-"Camera " + (index + 1);
-
-select.appendChild(option);
-
-});
-
-if (videoTrack) {
-
-const settings =
-videoTrack.getSettings();
-
-if (settings.deviceId) {
-select.value = settings.deviceId;
-}
-
-}
-
-select.onchange = async function() {
-
-if (this.value) {
-await startCamera(this.value);
-}
-
-};
-
-}
-
-
-/* ZOOM */
-
-function loadZoom() {
-
-const select =
-document.getElementById("zoomSelect");
-
-select.innerHTML =
-'<option value="">Zoom</option>';
-
-if (!videoTrack ||
-!videoTrack.getCapabilities) {
-return;
-}
-
-const capabilities =
-videoTrack.getCapabilities();
-
-if (!capabilities.zoom) {
-return;
-}
-
-const min =
-capabilities.zoom.min;
-
-const max =
-capabilities.zoom.max;
-
-const step =
-capabilities.zoom.step || 0.1;
-
-
-/*
-Try to expose 1× first.
-*/
-
-if (1 >= min && 1 <= max) {
-
-const option =
-document.createElement("option");
-
-option.value = "1";
-
-option.textContent = "1× Main";
-
-select.appendChild(option);
-
-}
-
-
-for (
-let value = min;
-value <= max;
-value += step
-) {
-
-const rounded =
-Math.round(value * 10) / 10;
-
-if (rounded === 1) {
-continue;
-}
-
-const option =
-document.createElement("option");
-
-option.value = rounded;
-
-option.textContent =
-rounded + "×";
-
-select.appendChild(option);
-
-}
-
-
-select.onchange = async function() {
-
-if (!this.value || !videoTrack) {
-return;
-}
-
-try {
-
-await videoTrack.applyConstraints({
-advanced: [
-{
-zoom: Number(this.value)
-}
-]
-});
-
-} catch (error) {
-
-console.log(
-"Zoom not supported:",
-error
-);
-
-}
-
-};
-
-}
-
-
-/* SWITCH CAMERA */
-
-async function switchCamera() {
-
-const select =
-document.getElementById("cameraSelect");
-
-if (!select.value) {
-return;
-}
-
-await startCamera(select.value);
-
-}
-
-
-/* STOP CAMERA */
-
-function stopCamera() {
-
-if (scanTimer) {
-
-clearInterval(scanTimer);
-
-scanTimer = null;
-
-}
-
-if (stream) {
-
-stream.getTracks().forEach(
-function(track) {
-track.stop();
-}
-);
-
-stream = null;
-videoTrack = null;
-}
-
-}
-
-
-/* BARCODE / QR DETECTION */
-
-function startDetection() {
-
-if (!("BarcodeDetector" in window)) {
-
-document.getElementById("scanMessage").textContent =
-"Scanner API is not supported by this browser. You can enter the value manually.";
-
-return;
-
-}
-
-
-let formats = [];
-
-if (scannerMode === "qr") {
-
-formats = ["qr_code"];
-
-} else {
-
-formats = [
-"code_128",
-"code_39",
-"code_93",
-"ean_13",
-"ean_8",
-"upc_a",
-"upc_e",
-"itf",
-"codabar"
-];
-
-}
-
-
-BarcodeDetector.getSupportedFormats()
-.then(function(supported) {
-
-const usable =
-formats.filter(function(format) {
-return supported.includes(format);
-});
-
-if (!usable.length) {
-
-document.getElementById("scanMessage").textContent =
-"No compatible scanner format found.";
-
-return;
-
-}
-
-const detector =
-new BarcodeDetector({
-formats: usable
-});
-
-scanTimer =
-setInterval(async function() {
-
-const video =
-document.getElementById("cameraVideo");
-
-if (
-video.readyState <
-HTMLMediaElement.HAVE_ENOUGH_DATA
-) {
-return;
-}
-
-try {
-
-const codes =
-await detector.detect(video);
-
-if (codes.length > 0) {
-
-const value =
-codes[0].rawValue || "";
-
-if (value) {
-
-handleScanResult(value);
-
-}
-
-}
-
-} catch (error) {
-
-console.log(
-"Detection error:",
-error
-);
-
-}
-
-}, 250);
-
-})
-.catch(function(error) {
-
-console.log(error);
-
-});
-
-}
-
-
-/* SCAN RESULT */
-
-function handleScanResult(value) {
-
-if (scannerMode === "qr") {
-
-const imei =
-value.trim();
-
-if (
-!/^[0-9]+$/.test(imei) ||
-imei.length <= 10
-) {
-
-document.getElementById("scanMessage").textContent =
-"Invalid IMEI QR. Please scan again.";
-
-return;
-
-}
-
-document.getElementById("imei").value =
-imei;
-
-} else {
-
-document.getElementById("sim").value =
-value.trim();
-
-}
-
-closeScanner();
-
-}
-
-
-/* CLOSE */
-
-function closeScanner() {
-
-stopCamera();
-
-document
-.getElementById("scanner")
-.classList.remove("active");
-
-scannerMode = "";
-
-}
 
 </script>
 
 </body>
-</html>
+          </html>
