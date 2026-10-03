@@ -1,1 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRAK MOTION GPS</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #07111f;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 18px;
+      background: #0b1728;
+      border-bottom: 1px solid #1d3147;
+    }
+
+    header h1 {
+      color: #31e981;
+      font-size: 20px;
+    }
+
+    header p {
+      color: #8ea1b5;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    main {
+      padding: 20px 15px 90px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #91a3b7;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .stats,
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .card,
+    button {
+      background: #0d1c2e;
+      border: 1px solid #1d344b;
+      border-radius: 15px;
+      color: white;
+    }
+
+    .card {
+      padding: 16px;
+    }
+
+    .label {
+      color: #91a3b7;
+      font-size: 12px;
+    }
+
+    .number {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .section {
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 18px 12px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    button:hover {
+      border-color: #31e981;
+    }
+
+    .icon {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .small {
+      color: #91a3b7;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .back {
+      border: none;
+      background: transparent;
+      color: #31e981;
+      padding: 0;
+      margin-bottom: 18px;
+    }
+
+    .form {
+      background: #0d1c2e;
+      border: 1px solid #1d344b;
+      border-radius: 15px;
+      padding: 16px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      margin-bottom: 15px;
+      background: #07111f;
+      color: white;
+      border: 1px solid #29435b;
+      border-radius: 10px;
+    }
+
+    .save {
+      width: 100%;
+      background: #31e981;
+      color: #04120a;
+      border: none;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #0a1727;
+      border-top: 1px solid #1d3147;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 8px;
+    }
+
+    .bottom button {
+      border: none;
+      background: transparent;
+      text-align: center;
+      padding: 7px 2px;
+      font-size: 11px;
+    }
+
+    @media (min-width: 650px) {
+      .stats,
+      .actions {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>TRAK MOTION GPS</h1>
+  <p>Inventory Management System</p>
+</header>
+
+<main>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="screen active">
+
+    <h2>Dashboard</h2>
+    <p class="subtitle">Welcome to TRAK MOTION GPS</p>
+
+    <div class="stats">
+
+      <div class="card">
+        <div class="label">Total Inventory</div>
+        <div class="number">0</div>
+      </div>
+
+      <div class="card">
+        <div class="label">In Stock</div>
+        <div class="number">0</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Installed</div>
+        <div class="number">0</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Dispatched</div>
+        <div class="number">0</div>
+      </div>
+
+    </div>
+
+    <div class="section">Quick Actions</div>
+
+    <div class="actions">
+
+      <button onclick="show('add')">
+        <div class="icon">📦</div>
+        <div class="title">Add Inventory</div>
+        <div class="small">Add new GPS device</div>
+      </button>
+
+      <button onclick="show('search')">
+        <div class="icon">🔍</div>
+        <div class="title">Search</div>
+        <div class="small">Find inventory</div>
+      </button>
+
+      <button onclick="show('dispatch')">
+        <div class="icon">🚚</div>
+        <div class="title">Dispatch</div>
+        <div class="small">Dispatch device</div>
+      </button>
+
+      <button onclick="show('installation')">
+        <div class="icon">🔧</div>
+        <div class="title">Installation</div>
+        <div class="small">Install GPS</div>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ADD INVENTORY -->
+  <section id="add" class="screen">
+
+    <button class="back" onclick="show('dashboard')">← Back</button>
+
+    <h2>Add Inventory</h2>
+    <p class="subtitle">Add a new GPS device</p>
+
+    <div class="form">
+
+      <label>IMEI No.</label>
+      <input type="text" placeholder="Enter IMEI">
+
+      <label>SIM No.</label>
+      <input type="text" placeholder="Enter SIM number">
+
+      <label>Device Model</label>
+      <select>
+        <option>Select Device Model</option>
+        <option>BR05M</option>
+        <option>BR05 V5</option>
+        <option>SK05</option>
+        <option>OTHERS</option>
+      </select>
+
+      <label>Relay</label>
+      <select>
+        <option>Select Relay</option>
+        <option>12V</option>
+        <option>24V</option>
+      </select>
+
+      <label>Purchase Price (₹)</label>
+      <input type="number" placeholder="Enter purchase price">
+
+      <label>Locking Status</label>
+      <select>
+        <option>Select Locking Status</option>
+        <option>LOCKED</option>
+        <option>NOT LOCKED</option>
+      </select>
+
+      <button class="save" onclick="alert('Form is ready. Backend connection will be added next.')">
+        SAVE INVENTORY
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- SEARCH -->
+  <section id="search" class="screen">
+
+    <button class="back" onclick="show('dashboard')">← Back</button>
+
+    <h2>Search</h2>
+    <p class="subtitle">Find GPS inventory</p>
+
+    <div class="form">
+      <label>IMEI / SIM / Vehicle / Customer</label>
+      <input type="text" placeholder="Enter search value">
+
+      <button class="save">
+        SEARCH
+      </button>
+    </div>
+
+  </section>
+
+
+  <!-- DISPATCH -->
+  <section id="dispatch" class="screen">
+
+    <button class="back" onclick="show('dashboard')">← Back</button>
+
+    <h2>Dispatch</h2>
+    <p class="subtitle">Dispatch GPS device</p>
+
+    <div class="form">
+      <label>IMEI No.</label>
+      <input type="text" placeholder="Enter IMEI">
+
+      <label>Party Type</label>
+      <select>
+        <option>Select Party Type</option>
+        <option>DEALER</option>
+        <option>DISTRIBUTOR</option>
+        <option>INSTALLER</option>
+        <option>CAR MECHANIC</option>
+        <option>CAR ACCESSORIES</option>
+      </select>
+
+      <label>Party Name</label>
+      <input type="text" placeholder="Enter party name">
+
+      <button class="save">
+        DISPATCH
+      </button>
+    </div>
+
+  </section>
+
+
+  <!-- INSTALLATION -->
+  <section id="installation" class="screen">
+
+    <button class="back" onclick="show('dashboard')">← Back</button>
+
+    <h2>Installation</h2>
+    <p class="subtitle">Install GPS device</p>
+
+    <div class="form">
+
+      <label>IMEI No.</label>
+      <input type="text" placeholder="Enter IMEI">
+
+      <label>Installer Name</label>
+      <input type="text" placeholder="Enter installer name">
+
+      <label>Customer Name</label>
+      <input type="text" placeholder="Enter customer name">
+
+      <label>Vehicle No.</label>
+      <input type="text" placeholder="Enter vehicle number">
+
+      <label>Installation Status</label>
+      <select>
+        <option>Select Status</option>
+        <option>PENDING</option>
+        <option>INSTALLED</option>
+        <option>REPLACED</option>
+        <option>REMOVED</option>
+      </select>
+
+      <button class="save">
+        SAVE INSTALLATION
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<nav class="bottom">
+
+  <button onclick="show('dashboard')">
+    🏠<br>Dashboard
+  </button>
+
+  <button onclick="show('add')">
+    📦<br>Inventory
+  </button>
+
+  <button onclick="show('search')">
+    🔍<br>Search
+  </button>
+
+  <button onclick="show('dashboard')">
+    ☰<br>More
+  </button>
+
+</nav>
+
+
+<script>
+
+function show(id) {
+
+  document.querySelectorAll(".screen").forEach(function(screen) {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+
+  window.scrollTo(0, 0);
+}
+
+</script>
+
+</body>
+</html>
