@@ -42,6 +42,13 @@ body{
   padding-bottom:78px;
 }
 
+.app{
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  min-height:100vh;
+}
+
 button,
 input,
 select,
@@ -53,14 +60,7 @@ button{
   cursor:pointer;
 }
 
-.app{
-  width:100%;
-  max-width:600px;
-  margin:auto;
-  min-height:100vh;
-}
-
-/* ================= HEADER ================= */
+/* HEADER */
 
 .top-header{
   background:linear-gradient(135deg,#008f63,#006c4d);
@@ -92,7 +92,6 @@ button{
 .brand-name{
   font-size:20px;
   font-weight:800;
-  letter-spacing:.2px;
 }
 
 .brand-sub{
@@ -101,7 +100,7 @@ button{
   margin-top:3px;
 }
 
-/* ================= PAGES ================= */
+/* PAGES */
 
 .page{
   display:none;
@@ -148,7 +147,7 @@ button{
   margin-bottom:12px;
 }
 
-/* ================= HOME ================= */
+/* HOME */
 
 .home-card{
   background:white;
@@ -250,7 +249,7 @@ button{
   margin-top:3px;
 }
 
-/* ================= FORMS ================= */
+/* FORMS */
 
 .form-group{
   margin-bottom:12px;
@@ -337,7 +336,7 @@ textarea{
   gap:10px;
 }
 
-/* ================= SEARCH ================= */
+/* SEARCH */
 
 .search-box{
   display:flex;
@@ -437,7 +436,7 @@ textarea{
   color:#c82424;
 }
 
-/* ================= DASHBOARD ================= */
+/* DASHBOARD */
 
 .dashboard-total{
   background:white;
@@ -501,7 +500,7 @@ textarea{
   margin-top:2px;
 }
 
-/* ================= HISTORY ================= */
+/* HISTORY */
 
 .timeline{
   position:relative;
@@ -555,7 +554,7 @@ textarea{
   margin-top:3px;
 }
 
-/* ================= DEVICE DETAILS ================= */
+/* DEVICE DETAILS */
 
 .device-photo{
   width:65px;
@@ -595,7 +594,7 @@ textarea{
   text-align:right;
 }
 
-/* ================= SCANNER ================= */
+/* SCANNER */
 
 .scanner{
   display:none;
@@ -699,7 +698,7 @@ textarea{
   font-weight:800;
 }
 
-/* ================= BOTTOM NAV ================= */
+/* BOTTOM NAV */
 
 .bottom-nav{
   position:fixed;
@@ -743,7 +742,7 @@ textarea{
   color:var(--green);
 }
 
-/* ================= TOAST ================= */
+/* TOAST */
 
 .toast{
   position:fixed;
@@ -768,8 +767,6 @@ textarea{
   transform:translateX(-50%) translateY(0);
 }
 
-/* ================= DESKTOP ================= */
-
 @media(min-width:700px){
 
   body{
@@ -789,8 +786,6 @@ textarea{
 
 <div class="app">
 
-<!-- ================= HEADER ================= -->
-
 <header class="top-header">
 
   <div class="brand">
@@ -798,10 +793,15 @@ textarea{
     <div class="brand-logo">📍</div>
 
     <div>
-      <div class="brand-name">TRAK MOTION GPS</div>
+
+      <div class="brand-name">
+        TRAK MOTION GPS
+      </div>
+
       <div class="brand-sub">
         Vehicle Tracking | Inventory Management
       </div>
+
     </div>
 
   </div>
@@ -809,7 +809,7 @@ textarea{
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
 <section id="homePage" class="page active">
 
@@ -832,7 +832,7 @@ textarea{
 
         <div class="icon">🚚</div>
         <div class="title">DISPATCH</div>
-        <div class="sub">Send to Dealer / Installer</div>
+        <div class="sub">Send to Dealer / Customer</div>
 
       </button>
 
@@ -884,8 +884,15 @@ textarea{
       <div class="summary-box">
 
         <div class="summary-icon">📦</div>
-        <div class="summary-label">Stock</div>
-        <div class="summary-value" id="homeStock">0</div>
+
+        <div class="summary-label">
+          Stock
+        </div>
+
+        <div class="summary-value"
+             id="homeStock">
+          0
+        </div>
 
       </div>
 
@@ -893,8 +900,15 @@ textarea{
       <div class="summary-box">
 
         <div class="summary-icon">🚗</div>
-        <div class="summary-label">Installed</div>
-        <div class="summary-value" id="homeInstalled">0</div>
+
+        <div class="summary-label">
+          Installed
+        </div>
+
+        <div class="summary-value"
+             id="homeInstalled">
+          0
+        </div>
 
       </div>
 
@@ -910,7 +924,7 @@ textarea{
 </section>
 
 
-<!-- ================= INWARD ================= -->
+<!-- INWARD -->
 
 <section id="inwardPage" class="page">
 
@@ -933,8 +947,14 @@ textarea{
               onclick="openScanner('imei')">
 
         <div class="icon">▦</div>
-        <div class="title">SCAN QR</div>
-        <div class="sub">IMEI + Device Details</div>
+
+        <div class="title">
+          SCAN IMEI QR
+        </div>
+
+        <div class="sub">
+          Device IMEI
+        </div>
 
       </button>
 
@@ -944,8 +964,14 @@ textarea{
               onclick="openScanner('sim')">
 
         <div class="icon">▥</div>
-        <div class="title">SCAN SIM</div>
-        <div class="sub">Barcode</div>
+
+        <div class="title">
+          SCAN SIM QR
+        </div>
+
+        <div class="sub">
+          SIM XML QR / Barcode
+        </div>
 
       </button>
 
@@ -958,7 +984,9 @@ textarea{
 
     <div class="form-group">
 
-      <label class="form-label">IMEI No.</label>
+      <label class="form-label">
+        IMEI No.
+      </label>
 
       <div class="scan-row">
 
@@ -980,18 +1008,20 @@ textarea{
 
     <div class="form-group">
 
-      <label class="form-label">SIM No.</label>
+      <label class="form-label">
+        SIM No.
+      </label>
 
       <div class="scan-row">
 
         <input id="simInput"
                type="text"
-               placeholder="Scan or enter SIM number"
+               placeholder="Scan SIM QR / barcode"
                autocomplete="off">
 
         <button class="scan-small"
                 onclick="openScanner('sim')">
-          📷 BAR
+          📷 QR
         </button>
 
       </div>
@@ -1001,7 +1031,9 @@ textarea{
 
     <div class="form-group">
 
-      <label class="form-label">Device Model</label>
+      <label class="form-label">
+        Device Model
+      </label>
 
       <select id="modelInput">
 
@@ -1023,7 +1055,9 @@ textarea{
 
       <div class="form-group">
 
-        <label class="form-label">Relay</label>
+        <label class="form-label">
+          Relay
+        </label>
 
         <select id="relayInput">
 
@@ -1110,14 +1144,15 @@ textarea{
 
       &nbsp; | &nbsp;
 
-      S.No:
-      <strong>Auto</strong>
+      SIM Status:
+      <strong style="color:#00855c;">
+        INACTIVE
+      </strong>
 
     </div>
 
-
     <div style="font-size:10px;color:#80918b;margin-top:6px;">
-      Date & Time: Auto
+      S.No. and Date & Time are automatic.
     </div>
 
   </div>
@@ -1125,7 +1160,7 @@ textarea{
 </section>
 
 
-<!-- ================= DISPATCH ================= -->
+<!-- DISPATCH -->
 
 <section id="dispatchPage" class="page">
 
@@ -1171,91 +1206,45 @@ textarea{
        style="display:none;">
 
     <div class="section-title">
-      Device Details (Auto Fetched)
+      Device Details
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Full IMEI
-      </span>
-
+      <span class="detail-key">Full IMEI</span>
       <span class="detail-value"
-            id="dispatchIMEI">
-        -
-      </span>
-
+            id="dispatchIMEI">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        SIM No.
-      </span>
-
+      <span class="detail-key">SIM No.</span>
       <span class="detail-value"
-            id="dispatchSIM">
-        -
-      </span>
-
+            id="dispatchSIM">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Device Model
-      </span>
-
+      <span class="detail-key">Device Model</span>
       <span class="detail-value"
-            id="dispatchModel">
-        -
-      </span>
-
+            id="dispatchModel">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Relay
-      </span>
-
+      <span class="detail-key">Relay</span>
       <span class="detail-value"
-            id="dispatchRelay">
-        -
-      </span>
-
+            id="dispatchRelay">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        SIM Status
-      </span>
-
+      <span class="detail-key">SIM Status</span>
       <span class="detail-value"
-            id="dispatchSIMStatus">
-        -
-      </span>
-
+            id="dispatchSIMStatus">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Current Status
-      </span>
-
+      <span class="detail-key">Current Status</span>
       <span class="badge green-b"
             id="dispatchStatus">
         IN STOCK
       </span>
-
     </div>
 
   </div>
@@ -1285,8 +1274,6 @@ textarea{
         <option>INSTALLER</option>
         <option>CAR MECHANIC</option>
         <option>CAR ACCESSORIES</option>
-
-        <!-- CUSTOMER ADDED -->
         <option>CUSTOMER</option>
 
       </select>
@@ -1316,7 +1303,7 @@ textarea{
       <input id="partyMobile"
              type="text"
              inputmode="tel"
-             placeholder="Enter mobile number">
+             placeholder="Enter party mobile">
 
     </div>
 
@@ -1360,7 +1347,7 @@ textarea{
 </section>
 
 
-<!-- ================= INSTALLATION ================= -->
+<!-- INSTALLATION -->
 
 <section id="installationPage" class="page">
 
@@ -1404,77 +1391,39 @@ textarea{
   <div class="card">
 
     <div class="section-title">
-      Device Details (Auto Fetched)
+      Device Details
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Full IMEI
-      </span>
-
+      <span class="detail-key">Full IMEI</span>
       <span class="detail-value"
-            id="installIMEI">
-        -
-      </span>
-
+            id="installIMEI">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        SIM No.
-      </span>
-
+      <span class="detail-key">SIM No.</span>
       <span class="detail-value"
-            id="installSIM">
-        -
-      </span>
-
+            id="installSIM">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Device Model
-      </span>
-
+      <span class="detail-key">Device Model</span>
       <span class="detail-value"
-            id="installModel">
-        -
-      </span>
-
+            id="installModel">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        Relay
-      </span>
-
+      <span class="detail-key">Relay</span>
       <span class="detail-value"
-            id="installRelay">
-        -
-      </span>
-
+            id="installRelay">-</span>
     </div>
 
-
     <div class="detail-row">
-
-      <span class="detail-key">
-        SIM Status
-      </span>
-
+      <span class="detail-key">SIM Status</span>
       <span class="badge green-b"
             id="installSIMStatus">
         ACTIVE
       </span>
-
     </div>
 
   </div>
@@ -1644,7 +1593,7 @@ textarea{
 </section>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- SEARCH -->
 
 <section id="searchPage" class="page">
 
@@ -1743,7 +1692,7 @@ textarea{
 </section>
 
 
-<!-- ================= HISTORY ================= -->
+<!-- HISTORY -->
 
 <section id="historyPage" class="page">
 
@@ -1802,7 +1751,7 @@ textarea{
 </section>
 
 
-<!-- ================= DASHBOARD ================= -->
+<!-- DASHBOARD -->
 
 <section id="dashboardPage" class="page">
 
@@ -1848,92 +1797,37 @@ textarea{
     <div class="dashboard-grid">
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          📦
-        </div>
-
-        <div class="stat-name">
-          IN STOCK
-        </div>
-
-        <div class="stat-number"
-             id="dashStock">
-          0
-        </div>
-
+        <div class="stat-icon">📦</div>
+        <div class="stat-name">IN STOCK</div>
+        <div class="stat-number" id="dashStock">0</div>
       </div>
 
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          🚚
-        </div>
-
-        <div class="stat-name">
-          DELIVERED
-        </div>
-
-        <div class="stat-number"
-             id="dashDelivered">
-          0
-        </div>
-
+        <div class="stat-icon">🚚</div>
+        <div class="stat-name">DELIVERED</div>
+        <div class="stat-number" id="dashDelivered">0</div>
       </div>
 
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          👤
-        </div>
-
-        <div class="stat-name">
-          INSTALLED
-        </div>
-
-        <div class="stat-number"
-             id="dashInstalled">
-          0
-        </div>
-
+        <div class="stat-icon">👤</div>
+        <div class="stat-name">INSTALLED</div>
+        <div class="stat-number" id="dashInstalled">0</div>
       </div>
 
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          📦
-        </div>
-
-        <div class="stat-name">
-          RETURNED
-        </div>
-
-        <div class="stat-number"
-             id="dashReturned">
-          0
-        </div>
-
+        <div class="stat-icon">📦</div>
+        <div class="stat-name">RETURNED</div>
+        <div class="stat-number" id="dashReturned">0</div>
       </div>
 
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          ⚠️
-        </div>
-
-        <div class="stat-name">
-          DAMAGED
-        </div>
-
-        <div class="stat-number"
-             id="dashDamaged">
-          0
-        </div>
-
+        <div class="stat-icon">⚠️</div>
+        <div class="stat-name">DAMAGED</div>
+        <div class="stat-number" id="dashDamaged">0</div>
       </div>
 
     </div>
@@ -1951,53 +1845,23 @@ textarea{
     <div class="dashboard-grid">
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          🟢
-        </div>
-
-        <div class="stat-name">
-          ACTIVE
-        </div>
-
-        <div class="stat-number">
-          0
-        </div>
-
+        <div class="stat-icon">🟢</div>
+        <div class="stat-name">ACTIVE</div>
+        <div class="stat-number">0</div>
       </div>
 
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          🟡
-        </div>
-
-        <div class="stat-name">
-          INACTIVE
-        </div>
-
-        <div class="stat-number">
-          0
-        </div>
-
+        <div class="stat-icon">🟡</div>
+        <div class="stat-name">INACTIVE</div>
+        <div class="stat-number">0</div>
       </div>
 
 
       <div class="stat-card">
-
-        <div class="stat-icon">
-          🔴
-        </div>
-
-        <div class="stat-name">
-          EXPIRED
-        </div>
-
-        <div class="stat-number">
-          0
-        </div>
-
+        <div class="stat-icon">🔴</div>
+        <div class="stat-name">EXPIRED</div>
+        <div class="stat-number">0</div>
       </div>
 
     </div>
@@ -2007,7 +1871,7 @@ textarea{
 </section>
 
 
-<!-- ================= DEVICE DETAILS ================= -->
+<!-- DEVICE DETAILS -->
 
 <section id="detailsPage" class="page">
 
@@ -2033,44 +1897,18 @@ textarea{
       <div style="flex:1;">
 
         <div class="detail-row">
-
-          <span class="detail-key">
-            IMEI
-          </span>
-
-          <span class="detail-value"
-                id="detailIMEI">
-            -
-          </span>
-
+          <span class="detail-key">IMEI</span>
+          <span class="detail-value" id="detailIMEI">-</span>
         </div>
 
-
         <div class="detail-row">
-
-          <span class="detail-key">
-            SIM
-          </span>
-
-          <span class="detail-value"
-                id="detailSIM">
-            -
-          </span>
-
+          <span class="detail-key">SIM</span>
+          <span class="detail-value" id="detailSIM">-</span>
         </div>
 
-
         <div class="detail-row">
-
-          <span class="detail-key">
-            Model
-          </span>
-
-          <span class="detail-value"
-                id="detailModel">
-            -
-          </span>
-
+          <span class="detail-key">Model</span>
+          <span class="detail-value" id="detailModel">-</span>
         </div>
 
       </div>
@@ -2142,7 +1980,7 @@ textarea{
 </div>
 
 
-<!-- ================= SCANNER ================= -->
+<!-- SCANNER -->
 
 <div id="scanner"
      class="scanner">
@@ -2203,9 +2041,7 @@ textarea{
 
 
   <div class="scan-frame">
-
     <div class="scan-line"></div>
-
   </div>
 
 
@@ -2223,7 +2059,7 @@ textarea{
 </div>
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<!-- BOTTOM NAV -->
 
 <nav class="bottom-nav">
 
@@ -2232,9 +2068,7 @@ textarea{
     <button class="nav-btn active"
             onclick="showPage('homePage')">
 
-      <div class="nav-icon">
-        ⌂
-      </div>
+      <div class="nav-icon">⌂</div>
 
       Home
 
@@ -2244,9 +2078,7 @@ textarea{
     <button class="nav-btn"
             onclick="showPage('historyPage')">
 
-      <div class="nav-icon">
-        ◷
-      </div>
+      <div class="nav-icon">◷</div>
 
       History
 
@@ -2256,9 +2088,7 @@ textarea{
     <button class="nav-btn"
             onclick="showPage('searchPage')">
 
-      <div class="nav-icon">
-        ⌕
-      </div>
+      <div class="nav-icon">⌕</div>
 
       Search
 
@@ -2268,9 +2098,7 @@ textarea{
     <button class="nav-btn"
             onclick="showPage('dashboardPage')">
 
-      <div class="nav-icon">
-        ▥
-      </div>
+      <div class="nav-icon">▥</div>
 
       Dashboard
 
@@ -2289,7 +2117,7 @@ textarea{
 <script>
 
 /* =========================================================
-   BASIC NAVIGATION
+   NAVIGATION
 ========================================================= */
 
 let currentPage="homePage";
@@ -2403,15 +2231,23 @@ function toast(message){
 
 
 /* =========================================================
-   SCANNER
+   SCANNER VARIABLES
 ========================================================= */
 
 let scannerMode="imei";
+
 let cameraStream=null;
+
 let cameraTrack=null;
+
 let scanTimer=null;
+
 let scanning=false;
 
+
+/* =========================================================
+   OPEN SCANNER
+========================================================= */
 
 async function openScanner(mode){
 
@@ -2425,21 +2261,25 @@ async function openScanner(mode){
   document.getElementById("scannerModeTitle")
     .textContent=
       mode==="imei"
-        ? "SCAN QR — IMEI"
-        : "SCAN BARCODE — SIM";
+        ? "SCAN IMEI QR"
+        : "SCAN SIM QR / BARCODE";
 
 
   document.getElementById("scannerMessage")
     .textContent=
       mode==="imei"
         ? "Point the camera at the IMEI QR code."
-        : "Point the camera at the SIM barcode.";
+        : "Point the camera at the SIM QR / barcode.";
 
 
   await startCamera();
 
 }
 
+
+/* =========================================================
+   CAMERA
+========================================================= */
 
 async function startCamera(deviceId=""){
 
@@ -2462,34 +2302,43 @@ async function startCamera(deviceId=""){
 
   try{
 
-    const constraints={
-      video:{
-        facingMode:{
-          ideal:"environment"
-        },
-        width:{
-          ideal:1920
-        },
-        height:{
-          ideal:1080
-        }
-      },
-      audio:false
-    };
+    let videoConstraints;
 
 
     if(deviceId){
 
-      constraints.video={
+      videoConstraints={
+
         deviceId:{
           exact:deviceId
         },
+
         width:{
           ideal:1920
         },
+
         height:{
           ideal:1080
         }
+
+      };
+
+    }else{
+
+      videoConstraints={
+
+        facingMode:{
+          ideal:"environment"
+        },
+
+        width:{
+          ideal:1920
+        },
+
+        height:{
+          ideal:1080
+        }
+
       };
 
     }
@@ -2497,14 +2346,21 @@ async function startCamera(deviceId=""){
 
     cameraStream=
       await navigator.mediaDevices
-        .getUserMedia(constraints);
+        .getUserMedia({
+
+          video:videoConstraints,
+
+          audio:false
+
+        });
 
 
     const video=
       document.getElementById("cameraVideo");
 
 
-    video.srcObject=cameraStream;
+    video.srcObject=
+      cameraStream;
 
 
     cameraTrack=
@@ -2536,6 +2392,10 @@ async function startCamera(deviceId=""){
 
 }
 
+
+/* =========================================================
+   CAMERA LIST
+========================================================= */
 
 async function loadCameras(){
 
@@ -2585,7 +2445,8 @@ async function loadCameras(){
       }
 
 
-      option.textContent=label;
+      option.textContent=
+        label;
 
 
       select.appendChild(option);
@@ -2625,6 +2486,10 @@ async function switchCamera(){
 
 }
 
+
+/* =========================================================
+   ZOOM / 1X
+========================================================= */
 
 function loadZoom(){
 
@@ -2671,10 +2536,8 @@ function loadZoom(){
     capabilities.zoom.step || 0.1;
 
 
-  let values=[];
+  const values=[];
 
-
-  /* 1x option first when supported */
 
   if(min<=1 && max>=1){
 
@@ -2715,7 +2578,9 @@ function loadZoom(){
       document.createElement("option");
 
 
-    option.value=value;
+    option.value=
+      value;
+
 
     option.textContent=
       value+"×";
@@ -2785,6 +2650,10 @@ async function applyZoom(){
 }
 
 
+/* =========================================================
+   BARCODE DETECTION
+========================================================= */
+
 function startDetection(){
 
   if(scanning){
@@ -2805,7 +2674,7 @@ function startDetection(){
 
     document.getElementById("scannerMessage")
       .textContent=
-        "Camera opened, but this browser does not support built-in barcode scanning.";
+        "Camera opened, but barcode scanning is not supported by this browser.";
 
   }
 
@@ -2821,21 +2690,6 @@ async function detectWithBarcodeDetector(){
   }
 
 
-  const formats=[
-
-    "qr_code",
-    "code_128",
-    "code_39",
-    "code_93",
-    "ean_13",
-    "ean_8",
-    "upc_a",
-    "upc_e",
-    "itf"
-
-  ];
-
-
   let detector;
 
 
@@ -2843,7 +2697,19 @@ async function detectWithBarcodeDetector(){
 
     detector=
       new BarcodeDetector({
-        formats
+
+        formats:[
+          "qr_code",
+          "code_128",
+          "code_39",
+          "code_93",
+          "ean_13",
+          "ean_8",
+          "upc_a",
+          "upc_e",
+          "itf"
+        ]
+
       });
 
   }catch(error){
@@ -2877,7 +2743,7 @@ async function detectWithBarcodeDetector(){
   }catch(error){
 
     console.log(
-      "Detection:",
+      "Detection error:",
       error
     );
 
@@ -2893,6 +2759,110 @@ async function detectWithBarcodeDetector(){
 }
 
 
+/* =========================================================
+   IMPORTANT:
+   SIM QR XML PARSER
+========================================================= */
+
+function extractSIMFromXML(value){
+
+  if(!value){
+
+    return "";
+
+  }
+
+
+  const text=
+    String(value).trim();
+
+
+  /*
+    Example received from SIM QR:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <PrintLetterBarcodeData
+      simNo="8991542404594135536U"
+      imsiNo="405540459413553"
+      PackingMonth="Apr2024"
+      mobileNo=""/>
+  */
+
+
+  const simMatch=
+    text.match(
+      /(?:^|\s)simNo\s*=\s*["']([^"']+)["']/i
+    );
+
+
+  if(simMatch){
+
+    return simMatch[1].trim();
+
+  }
+
+
+  /*
+    Fallback:
+    Sometimes scanner may return XML
+    with slightly different spacing.
+  */
+
+  try{
+
+    const parser=
+      new DOMParser();
+
+
+    const xml=
+      parser.parseFromString(
+        text,
+        "application/xml"
+      );
+
+
+    const root=
+      xml.documentElement;
+
+
+    if(root){
+
+      const sim=
+        root.getAttribute("simNo");
+
+
+      if(sim){
+
+        return sim.trim();
+
+      }
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "XML parsing error:",
+      error
+    );
+
+  }
+
+
+  /*
+    If it isn't XML, assume it is
+    a normal barcode/SIM value.
+  */
+
+  return text;
+
+}
+
+
+/* =========================================================
+   HANDLE SCAN
+========================================================= */
+
 function handleScanResult(value){
 
   value=
@@ -2906,6 +2876,8 @@ function handleScanResult(value){
 
   }
 
+
+  /* ================= IMEI ================= */
 
   if(scannerMode==="imei"){
 
@@ -2935,23 +2907,56 @@ function handleScanResult(value){
       "IMEI scanned successfully"
     );
 
-  }else{
 
-    document.getElementById("simInput")
-      .value=value;
+    closeScanner();
 
 
-    toast(
-      "SIM barcode scanned successfully"
-    );
+    return;
 
   }
 
 
-  closeScanner();
+  /* ================= SIM ================= */
+
+  if(scannerMode==="sim"){
+
+    const simNumber=
+      extractSIMFromXML(value);
+
+
+    if(!simNumber){
+
+      document.getElementById("scannerMessage")
+        .textContent=
+          "SIM number could not be read.";
+
+      return;
+
+    }
+
+
+    document.getElementById("simInput")
+      .value=simNumber;
+
+
+    toast(
+      "SIM scanned successfully"
+    );
+
+
+    closeScanner();
+
+
+    return;
+
+  }
 
 }
 
+
+/* =========================================================
+   STOP CAMERA
+========================================================= */
 
 function stopCamera(reset=true){
 
@@ -2974,6 +2979,7 @@ function stopCamera(reset=true){
         track.stop();
       });
 
+
     cameraStream=null;
 
   }
@@ -2987,12 +2993,17 @@ function stopCamera(reset=true){
     const video=
       document.getElementById("cameraVideo");
 
+
     video.srcObject=null;
 
   }
 
 }
 
+
+/* =========================================================
+   CLOSE SCANNER
+========================================================= */
 
 function closeScanner(){
 
@@ -3048,7 +3059,9 @@ function saveInventory(){
 
   if(!imei){
 
-    toast("IMEI is required");
+    toast(
+      "IMEI is required"
+    );
 
     return;
 
@@ -3060,7 +3073,9 @@ function saveInventory(){
     imei.length<=10
   ){
 
-    toast("Invalid IMEI");
+    toast(
+      "Invalid IMEI"
+    );
 
     return;
 
@@ -3069,7 +3084,9 @@ function saveInventory(){
 
   if(!sim){
 
-    toast("SIM number is required");
+    toast(
+      "SIM number is required"
+    );
 
     return;
 
@@ -3078,7 +3095,9 @@ function saveInventory(){
 
   if(!model){
 
-    toast("Select Device Model");
+    toast(
+      "Select Device Model"
+    );
 
     return;
 
@@ -3087,7 +3106,9 @@ function saveInventory(){
 
   if(!relay){
 
-    toast("Select Relay");
+    toast(
+      "Select Relay"
+    );
 
     return;
 
@@ -3559,9 +3580,7 @@ function searchHistory(){
       </div>
 
       <div class="timeline-sub">
-        Complete IN STOCK → DISPATCHED →
-        DELIVERED → INSTALLED / RETURNED
-        journey will appear here.
+        Complete device journey will appear here.
       </div>
 
     </div>
@@ -3572,12 +3591,13 @@ function searchHistory(){
 
 
 /* =========================================================
-   HELPERS
+   HTML ESCAPE
 ========================================================= */
 
 function escapeHTML(value){
 
   return String(value)
+
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
@@ -3588,7 +3608,7 @@ function escapeHTML(value){
 
 
 /* =========================================================
-   INITIALIZATION
+   INITIALIZE
 ========================================================= */
 
 document.addEventListener(
