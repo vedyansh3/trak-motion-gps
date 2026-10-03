@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>TRAK MOTION GPS</title>
 
@@ -193,12 +192,29 @@ button{
   font-weight:500;
 }
 
-.green{background:linear-gradient(145deg,#0aa56f,#00855c);}
-.blue{background:linear-gradient(145deg,#1185df,#0769b8);}
-.orange{background:linear-gradient(145deg,#ffac22,#ed8c00);}
-.purple{background:linear-gradient(145deg,#825bd2,#6844b7);}
-.cyan{background:linear-gradient(145deg,#19a4bb,#078ba4);}
-.navy{background:linear-gradient(145deg,#12658a,#064b6d);}
+.green{
+  background:linear-gradient(145deg,#0aa56f,#00855c);
+}
+
+.blue{
+  background:linear-gradient(145deg,#1185df,#0769b8);
+}
+
+.orange{
+  background:linear-gradient(145deg,#ffac22,#ed8c00);
+}
+
+.purple{
+  background:linear-gradient(145deg,#825bd2,#6844b7);
+}
+
+.cyan{
+  background:linear-gradient(145deg,#19a4bb,#078ba4);
+}
+
+.navy{
+  background:linear-gradient(145deg,#12658a,#064b6d);
+}
 
 .stock-summary{
   display:grid;
@@ -755,6 +771,7 @@ textarea{
 /* ================= DESKTOP ================= */
 
 @media(min-width:700px){
+
   body{
     background:#eaf0ee;
   }
@@ -763,6 +780,7 @@ textarea{
     background:var(--bg);
     box-shadow:0 0 30px rgba(0,0,0,.08);
   }
+
 }
 </style>
 </head>
@@ -774,13 +792,20 @@ textarea{
 <!-- ================= HEADER ================= -->
 
 <header class="top-header">
+
   <div class="brand">
+
     <div class="brand-logo">📍</div>
+
     <div>
       <div class="brand-name">TRAK MOTION GPS</div>
-      <div class="brand-sub">Vehicle Tracking | Inventory Management</div>
+      <div class="brand-sub">
+        Vehicle Tracking | Inventory Management
+      </div>
     </div>
+
   </div>
+
 </header>
 
 
@@ -792,61 +817,91 @@ textarea{
 
     <div class="action-grid">
 
-      <button class="action-btn green" onclick="showPage('inwardPage')">
+      <button class="action-btn green"
+              onclick="showPage('inwardPage')">
+
         <div class="icon">📦</div>
         <div class="title">INWARD / SCAN</div>
         <div class="sub">Add New Device</div>
+
       </button>
 
-      <button class="action-btn blue" onclick="showPage('dispatchPage')">
+
+      <button class="action-btn blue"
+              onclick="showPage('dispatchPage')">
+
         <div class="icon">🚚</div>
         <div class="title">DISPATCH</div>
         <div class="sub">Send to Dealer / Installer</div>
+
       </button>
 
-      <button class="action-btn orange" onclick="showPage('installationPage')">
+
+      <button class="action-btn orange"
+              onclick="showPage('installationPage')">
+
         <div class="icon">🔧</div>
         <div class="title">INSTALLATION</div>
         <div class="sub">Install in Vehicle</div>
+
       </button>
 
-      <button class="action-btn purple" onclick="showPage('searchPage')">
+
+      <button class="action-btn purple"
+              onclick="showPage('searchPage')">
+
         <div class="icon">🔍</div>
         <div class="title">SEARCH</div>
         <div class="sub">Find Device</div>
+
       </button>
 
-      <button class="action-btn cyan" onclick="showPage('historyPage')">
+
+      <button class="action-btn cyan"
+              onclick="showPage('historyPage')">
+
         <div class="icon">📜</div>
         <div class="title">HISTORY</div>
         <div class="sub">Device Journey</div>
+
       </button>
 
-      <button class="action-btn navy" onclick="showPage('dashboardPage')">
+
+      <button class="action-btn navy"
+              onclick="showPage('dashboardPage')">
+
         <div class="icon">📊</div>
         <div class="title">DASHBOARD</div>
         <div class="sub">View Statistics</div>
+
       </button>
 
     </div>
 
+
     <div class="stock-summary">
 
       <div class="summary-box">
+
         <div class="summary-icon">📦</div>
         <div class="summary-label">Stock</div>
         <div class="summary-value" id="homeStock">0</div>
+
       </div>
 
+
       <div class="summary-box">
+
         <div class="summary-icon">🚗</div>
         <div class="summary-label">Installed</div>
         <div class="summary-value" id="homeInstalled">0</div>
+
       </div>
 
     </div>
 
   </div>
+
 
   <div style="text-align:center;color:#83938e;font-size:10px;margin:20px 0;">
     Powered by SLPJS Services Pvt. Ltd.
@@ -860,38 +915,53 @@ textarea{
 <section id="inwardPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>INWARD / SCAN</h2>
+
   </div>
+
 
   <div class="card">
 
     <div class="action-grid">
 
-      <button class="action-btn green" style="min-height:105px"
+      <button class="action-btn green"
+              style="min-height:105px"
               onclick="openScanner('imei')">
+
         <div class="icon">▦</div>
         <div class="title">SCAN QR</div>
         <div class="sub">IMEI + Device Details</div>
+
       </button>
 
-      <button class="action-btn blue" style="min-height:105px"
+
+      <button class="action-btn blue"
+              style="min-height:105px"
               onclick="openScanner('sim')">
+
         <div class="icon">▥</div>
         <div class="title">SCAN SIM</div>
         <div class="sub">Barcode</div>
+
       </button>
 
     </div>
 
   </div>
 
+
   <div class="card">
 
     <div class="form-group">
+
       <label class="form-label">IMEI No.</label>
 
       <div class="scan-row">
+
         <input id="imeiInput"
                type="text"
                inputmode="numeric"
@@ -899,99 +969,152 @@ textarea{
                autocomplete="off">
 
         <button class="scan-small"
-                onclick="openScanner('imei')">📷 QR</button>
+                onclick="openScanner('imei')">
+          📷 QR
+        </button>
+
       </div>
+
     </div>
 
 
     <div class="form-group">
+
       <label class="form-label">SIM No.</label>
 
       <div class="scan-row">
+
         <input id="simInput"
                type="text"
                placeholder="Scan or enter SIM number"
                autocomplete="off">
 
         <button class="scan-small"
-                onclick="openScanner('sim')">📷 BAR</button>
+                onclick="openScanner('sim')">
+          📷 BAR
+        </button>
+
       </div>
+
     </div>
 
 
     <div class="form-group">
+
       <label class="form-label">Device Model</label>
 
       <select id="modelInput">
-        <option value="">Select Device Model</option>
+
+        <option value="">
+          Select Device Model
+        </option>
+
         <option>BR05M</option>
         <option>BR05 V5</option>
         <option>SK05</option>
         <option>OTHERS</option>
+
       </select>
+
     </div>
 
 
     <div class="form-grid">
 
       <div class="form-group">
+
         <label class="form-label">Relay</label>
 
         <select id="relayInput">
-          <option value="">Select Relay</option>
+
+          <option value="">
+            Select Relay
+          </option>
+
           <option>12V</option>
           <option>24V</option>
+
         </select>
+
       </div>
 
 
       <div class="form-group">
-        <label class="form-label">Purchase Price (₹)</label>
+
+        <label class="form-label">
+          Purchase Price (₹)
+        </label>
 
         <input id="priceInput"
                type="number"
                min="0"
                step="0.01"
                placeholder="Enter price">
+
       </div>
 
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Locking Status</label>
+
+      <label class="form-label">
+        Locking Status
+      </label>
 
       <select id="lockingInput">
-        <option value="">Select Locking Status</option>
+
+        <option value="">
+          Select Locking Status
+        </option>
+
         <option>LOCKED</option>
         <option>NOT LOCKED</option>
+
       </select>
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Remarks (Optional)</label>
+
+      <label class="form-label">
+        Remarks (Optional)
+      </label>
 
       <textarea id="remarksInput"
                 placeholder="Enter any remarks..."></textarea>
+
     </div>
 
 
-    <button class="primary-btn" onclick="saveInventory()">
+    <button class="primary-btn"
+            onclick="saveInventory()">
+
       💾 SAVE INVENTORY
+
     </button>
 
   </div>
 
-  <div class="card" style="text-align:center;background:#e8f8f2;">
+
+  <div class="card"
+       style="text-align:center;background:#e8f8f2;">
 
     <div style="font-size:11px;color:#607871;">
+
       Status:
-      <strong style="color:#00855c;">IN STOCK</strong>
+      <strong style="color:#00855c;">
+        IN STOCK
+      </strong>
+
       &nbsp; | &nbsp;
+
       S.No:
       <strong>Auto</strong>
+
     </div>
+
 
     <div style="font-size:10px;color:#80918b;margin-top:6px;">
       Date & Time: Auto
@@ -1007,15 +1130,22 @@ textarea{
 <section id="dispatchPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>DISPATCH</h2>
+
   </div>
+
 
   <div class="card">
 
     <div class="form-group">
 
-      <label class="form-label">Enter IMEI Last 4/5/6 Digits</label>
+      <label class="form-label">
+        Enter IMEI Last 4/5/6 Digits
+      </label>
 
       <div class="search-box">
 
@@ -1025,7 +1155,9 @@ textarea{
                placeholder="e.g. 2345">
 
         <button class="search-btn"
-                onclick="searchForDispatch()">🔍</button>
+                onclick="searchForDispatch()">
+          🔍
+        </button>
 
       </div>
 
@@ -1033,38 +1165,97 @@ textarea{
 
   </div>
 
-  <div id="dispatchDeviceCard" class="card" style="display:none;">
 
-    <div class="section-title">Device Details (Auto Fetched)</div>
+  <div id="dispatchDeviceCard"
+       class="card"
+       style="display:none;">
 
-    <div class="detail-row">
-      <span class="detail-key">Full IMEI</span>
-      <span class="detail-value" id="dispatchIMEI">-</span>
+    <div class="section-title">
+      Device Details (Auto Fetched)
     </div>
 
-    <div class="detail-row">
-      <span class="detail-key">SIM No.</span>
-      <span class="detail-value" id="dispatchSIM">-</span>
-    </div>
 
     <div class="detail-row">
-      <span class="detail-key">Device Model</span>
-      <span class="detail-value" id="dispatchModel">-</span>
+
+      <span class="detail-key">
+        Full IMEI
+      </span>
+
+      <span class="detail-value"
+            id="dispatchIMEI">
+        -
+      </span>
+
     </div>
 
-    <div class="detail-row">
-      <span class="detail-key">Relay</span>
-      <span class="detail-value" id="dispatchRelay">-</span>
-    </div>
 
     <div class="detail-row">
-      <span class="detail-key">SIM Status</span>
-      <span class="detail-value" id="dispatchSIMStatus">-</span>
+
+      <span class="detail-key">
+        SIM No.
+      </span>
+
+      <span class="detail-value"
+            id="dispatchSIM">
+        -
+      </span>
+
     </div>
 
+
     <div class="detail-row">
-      <span class="detail-key">Current Status</span>
-      <span class="badge green-b" id="dispatchStatus">IN STOCK</span>
+
+      <span class="detail-key">
+        Device Model
+      </span>
+
+      <span class="detail-value"
+            id="dispatchModel">
+        -
+      </span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <span class="detail-key">
+        Relay
+      </span>
+
+      <span class="detail-value"
+            id="dispatchRelay">
+        -
+      </span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <span class="detail-key">
+        SIM Status
+      </span>
+
+      <span class="detail-value"
+            id="dispatchSIMStatus">
+        -
+      </span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <span class="detail-key">
+        Current Status
+      </span>
+
+      <span class="badge green-b"
+            id="dispatchStatus">
+        IN STOCK
+      </span>
+
     </div>
 
   </div>
@@ -1072,62 +1263,96 @@ textarea{
 
   <div class="card">
 
-    <div class="section-title">Delivery Details</div>
+    <div class="section-title">
+      Delivery Details
+    </div>
+
 
     <div class="form-group">
-      <label class="form-label">Party Type</label>
+
+      <label class="form-label">
+        Party Type
+      </label>
 
       <select id="partyType">
-        <option value="">Select Party Type</option>
+
+        <option value="">
+          Select Party Type
+        </option>
+
         <option>DEALER</option>
         <option>DISTRIBUTOR</option>
         <option>INSTALLER</option>
         <option>CAR MECHANIC</option>
         <option>CAR ACCESSORIES</option>
+
+        <!-- CUSTOMER ADDED -->
+        <option>CUSTOMER</option>
+
       </select>
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Party Name</label>
+
+      <label class="form-label">
+        Party Name
+      </label>
 
       <input id="partyName"
              type="text"
              placeholder="Enter party name">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Party Mobile</label>
+
+      <label class="form-label">
+        Party Mobile
+      </label>
 
       <input id="partyMobile"
              type="text"
              inputmode="tel"
              placeholder="Enter mobile number">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Dispatch Amount (₹)</label>
+
+      <label class="form-label">
+        Dispatch Amount (₹)
+      </label>
 
       <input id="dispatchAmount"
              type="number"
              min="0"
              step="0.01"
              placeholder="Enter amount">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Remarks</label>
+
+      <label class="form-label">
+        Remarks
+      </label>
 
       <textarea id="dispatchRemarks"
                 placeholder="Enter remarks..."></textarea>
+
     </div>
 
 
-    <button class="primary-btn" onclick="confirmDispatch()">
+    <button class="primary-btn"
+            onclick="confirmDispatch()">
+
       🚚 CONFIRM DISPATCH
+
     </button>
 
   </div>
@@ -1140,8 +1365,12 @@ textarea{
 <section id="installationPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>INSTALLATION</h2>
+
   </div>
 
 
@@ -1149,7 +1378,9 @@ textarea{
 
     <div class="form-group">
 
-      <label class="form-label">Enter IMEI Last 4/5/6 Digits</label>
+      <label class="form-label">
+        Enter IMEI Last 4/5/6 Digits
+      </label>
 
       <div class="search-box">
 
@@ -1159,7 +1390,9 @@ textarea{
                placeholder="e.g. 2345">
 
         <button class="search-btn"
-                onclick="searchForInstallation()">🔍</button>
+                onclick="searchForInstallation()">
+          🔍
+        </button>
 
       </div>
 
@@ -1170,31 +1403,78 @@ textarea{
 
   <div class="card">
 
-    <div class="section-title">Device Details (Auto Fetched)</div>
-
-    <div class="detail-row">
-      <span class="detail-key">Full IMEI</span>
-      <span class="detail-value" id="installIMEI">-</span>
+    <div class="section-title">
+      Device Details (Auto Fetched)
     </div>
 
-    <div class="detail-row">
-      <span class="detail-key">SIM No.</span>
-      <span class="detail-value" id="installSIM">-</span>
-    </div>
 
     <div class="detail-row">
-      <span class="detail-key">Device Model</span>
-      <span class="detail-value" id="installModel">-</span>
+
+      <span class="detail-key">
+        Full IMEI
+      </span>
+
+      <span class="detail-value"
+            id="installIMEI">
+        -
+      </span>
+
     </div>
 
-    <div class="detail-row">
-      <span class="detail-key">Relay</span>
-      <span class="detail-value" id="installRelay">-</span>
-    </div>
 
     <div class="detail-row">
-      <span class="detail-key">SIM Status</span>
-      <span class="badge green-b" id="installSIMStatus">ACTIVE</span>
+
+      <span class="detail-key">
+        SIM No.
+      </span>
+
+      <span class="detail-value"
+            id="installSIM">
+        -
+      </span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <span class="detail-key">
+        Device Model
+      </span>
+
+      <span class="detail-value"
+            id="installModel">
+        -
+      </span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <span class="detail-key">
+        Relay
+      </span>
+
+      <span class="detail-value"
+            id="installRelay">
+        -
+      </span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <span class="detail-key">
+        SIM Status
+      </span>
+
+      <span class="badge green-b"
+            id="installSIMStatus">
+        ACTIVE
+      </span>
+
     </div>
 
   </div>
@@ -1202,106 +1482,161 @@ textarea{
 
   <div class="card">
 
-    <div class="section-title">Installation Details</div>
-
-    <div class="form-group">
-      <label class="form-label">Installer</label>
-
-      <select id="installerInput">
-        <option value="">Select Installer</option>
-        <option>ADD NEW INSTALLER</option>
-      </select>
+    <div class="section-title">
+      Installation Details
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Customer Name</label>
+
+      <label class="form-label">
+        Installer
+      </label>
+
+      <select id="installerInput">
+
+        <option value="">
+          Select Installer
+        </option>
+
+        <option>
+          ADD NEW INSTALLER
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label class="form-label">
+        Customer Name
+      </label>
 
       <input id="customerName"
              type="text"
              placeholder="Enter customer name">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Customer Mobile</label>
+
+      <label class="form-label">
+        Customer Mobile
+      </label>
 
       <input id="customerMobile"
              type="text"
              inputmode="tel"
-             placeholder="Enter mobile number">
+             placeholder="Enter customer mobile">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Vehicle No.</label>
+
+      <label class="form-label">
+        Vehicle No.
+      </label>
 
       <input id="vehicleNo"
              type="text"
              placeholder="e.g. BR01AB1234"
              style="text-transform:uppercase;">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Installation Status</label>
+
+      <label class="form-label">
+        Installation Status
+      </label>
 
       <select id="installationStatus">
-        <option value="">Select Status</option>
+
+        <option value="">
+          Select Status
+        </option>
+
         <option>PENDING</option>
         <option>INSTALLED</option>
         <option>REPLACED</option>
         <option>REMOVED</option>
+
       </select>
+
     </div>
 
 
     <div class="form-grid">
 
       <div class="form-group">
-        <label class="form-label">GPS Sale Price (₹)</label>
+
+        <label class="form-label">
+          GPS Sale Price (₹)
+        </label>
 
         <input id="gpsSalePrice"
                type="number"
                min="0"
                step="0.01"
                placeholder="Enter amount">
+
       </div>
 
+
       <div class="form-group">
-        <label class="form-label">Installation Price (₹)</label>
+
+        <label class="form-label">
+          Installation Price (₹)
+        </label>
 
         <input id="installationPrice"
                type="number"
                min="0"
                step="0.01"
                placeholder="Enter amount">
+
       </div>
 
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Installer Share Amount (₹)</label>
+
+      <label class="form-label">
+        Installer Share Amount (₹)
+      </label>
 
       <input id="installerShare"
              type="number"
              min="0"
              step="0.01"
              placeholder="Enter amount">
+
     </div>
 
 
     <div class="form-group">
-      <label class="form-label">Remarks</label>
+
+      <label class="form-label">
+        Remarks
+      </label>
 
       <textarea id="installationRemarks"
                 placeholder="Enter remarks..."></textarea>
+
     </div>
 
 
-    <button class="primary-btn" onclick="saveInstallation()">
+    <button class="primary-btn"
+            onclick="saveInstallation()">
+
       🔧 SAVE INSTALLATION
+
     </button>
 
   </div>
@@ -1314,8 +1649,12 @@ textarea{
 <section id="searchPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>SEARCH</h2>
+
   </div>
 
 
@@ -1328,7 +1667,9 @@ textarea{
              placeholder="IMEI / SIM / Vehicle / Customer / Name">
 
       <button class="search-btn"
-              onclick="performSearch()">🔍</button>
+              onclick="performSearch()">
+        🔍
+      </button>
 
     </div>
 
@@ -1337,13 +1678,40 @@ textarea{
 
   <div class="filter-row">
 
-    <button class="filter active" onclick="setFilter(this,'ALL')">All</button>
-    <button class="filter" onclick="setFilter(this,'IMEI')">IMEI</button>
-    <button class="filter" onclick="setFilter(this,'SIM')">SIM</button>
-    <button class="filter" onclick="setFilter(this,'VEHICLE')">Vehicle</button>
-    <button class="filter" onclick="setFilter(this,'CUSTOMER')">Customer</button>
-    <button class="filter" onclick="setFilter(this,'DEALER')">Dealer</button>
-    <button class="filter" onclick="setFilter(this,'INSTALLER')">Installer</button>
+    <button class="filter active"
+            onclick="setFilter(this,'ALL')">
+      All
+    </button>
+
+    <button class="filter"
+            onclick="setFilter(this,'IMEI')">
+      IMEI
+    </button>
+
+    <button class="filter"
+            onclick="setFilter(this,'SIM')">
+      SIM
+    </button>
+
+    <button class="filter"
+            onclick="setFilter(this,'VEHICLE')">
+      Vehicle
+    </button>
+
+    <button class="filter"
+            onclick="setFilter(this,'CUSTOMER')">
+      Customer
+    </button>
+
+    <button class="filter"
+            onclick="setFilter(this,'DEALER')">
+      Dealer
+    </button>
+
+    <button class="filter"
+            onclick="setFilter(this,'INSTALLER')">
+      Installer
+    </button>
 
   </div>
 
@@ -1351,9 +1719,16 @@ textarea{
   <div class="card">
 
     <div style="font-size:12px;font-weight:800;margin-bottom:10px;">
+
       Results
-      <span id="resultCount" style="color:var(--muted);">(0)</span>
+
+      <span id="resultCount"
+            style="color:var(--muted);">
+        (0)
+      </span>
+
     </div>
+
 
     <div id="searchResults">
 
@@ -1373,8 +1748,12 @@ textarea{
 <section id="historyPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>DEVICE HISTORY</h2>
+
   </div>
 
 
@@ -1388,14 +1767,17 @@ textarea{
              placeholder="Enter IMEI last 4/5/6 digits">
 
       <button class="search-btn"
-              onclick="searchHistory()">🔍</button>
+              onclick="searchHistory()">
+        🔍
+      </button>
 
     </div>
 
   </div>
 
 
-  <div class="timeline" id="historyTimeline">
+  <div class="timeline"
+       id="historyTimeline">
 
     <div class="timeline-item">
 
@@ -1425,57 +1807,30 @@ textarea{
 <section id="dashboardPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>DASHBOARD</h2>
+
   </div>
 
 
   <div class="dashboard-total">
 
-    <div class="total-icon">📦</div>
+    <div class="total-icon">
+      📦
+    </div>
 
     <div>
-      <div class="total-label">TOTAL GPS</div>
-      <div class="total-number" id="totalGPS">0</div>
-    </div>
 
-  </div>
-
-
-  <div class="card">
-
-    <div class="section-title">Stock Summary</div>
-
-    <div class="dashboard-grid">
-
-      <div class="stat-card">
-        <div class="stat-icon">📦</div>
-        <div class="stat-name">IN STOCK</div>
-        <div class="stat-number" id="dashStock">0</div>
+      <div class="total-label">
+        TOTAL GPS
       </div>
 
-      <div class="stat-card">
-        <div class="stat-icon">🚚</div>
-        <div class="stat-name">DELIVERED</div>
-        <div class="stat-number" id="dashDelivered">0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">👤</div>
-        <div class="stat-name">INSTALLED</div>
-        <div class="stat-number" id="dashInstalled">0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">📦</div>
-        <div class="stat-name">RETURNED</div>
-        <div class="stat-number" id="dashReturned">0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">⚠️</div>
-        <div class="stat-name">DAMAGED</div>
-        <div class="stat-number" id="dashDamaged">0</div>
+      <div class="total-number"
+           id="totalGPS">
+        0
       </div>
 
     </div>
@@ -1485,26 +1840,164 @@ textarea{
 
   <div class="card">
 
-    <div class="section-title">SIM Status</div>
+    <div class="section-title">
+      Stock Summary
+    </div>
+
 
     <div class="dashboard-grid">
 
       <div class="stat-card">
-        <div class="stat-icon">🟢</div>
-        <div class="stat-name">ACTIVE</div>
-        <div class="stat-number">0</div>
+
+        <div class="stat-icon">
+          📦
+        </div>
+
+        <div class="stat-name">
+          IN STOCK
+        </div>
+
+        <div class="stat-number"
+             id="dashStock">
+          0
+        </div>
+
       </div>
 
-      <div class="stat-card">
-        <div class="stat-icon">🟡</div>
-        <div class="stat-name">INACTIVE</div>
-        <div class="stat-number">0</div>
-      </div>
 
       <div class="stat-card">
-        <div class="stat-icon">🔴</div>
-        <div class="stat-name">EXPIRED</div>
-        <div class="stat-number">0</div>
+
+        <div class="stat-icon">
+          🚚
+        </div>
+
+        <div class="stat-name">
+          DELIVERED
+        </div>
+
+        <div class="stat-number"
+             id="dashDelivered">
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          👤
+        </div>
+
+        <div class="stat-name">
+          INSTALLED
+        </div>
+
+        <div class="stat-number"
+             id="dashInstalled">
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          📦
+        </div>
+
+        <div class="stat-name">
+          RETURNED
+        </div>
+
+        <div class="stat-number"
+             id="dashReturned">
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          ⚠️
+        </div>
+
+        <div class="stat-name">
+          DAMAGED
+        </div>
+
+        <div class="stat-number"
+             id="dashDamaged">
+          0
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="section-title">
+      SIM Status
+    </div>
+
+
+    <div class="dashboard-grid">
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🟢
+        </div>
+
+        <div class="stat-name">
+          ACTIVE
+        </div>
+
+        <div class="stat-number">
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🟡
+        </div>
+
+        <div class="stat-name">
+          INACTIVE
+        </div>
+
+        <div class="stat-number">
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🔴
+        </div>
+
+        <div class="stat-name">
+          EXPIRED
+        </div>
+
+        <div class="stat-number">
+          0
+        </div>
+
       </div>
 
     </div>
@@ -1519,8 +2012,12 @@ textarea{
 <section id="detailsPage" class="page">
 
   <div class="page-title">
-    <button class="back-btn" onclick="goHome()">‹</button>
+
+    <button class="back-btn"
+            onclick="goHome()">‹</button>
+
     <h2>DEVICE DETAILS</h2>
+
   </div>
 
 
@@ -1528,23 +2025,52 @@ textarea{
 
     <div class="device-header">
 
-      <div class="device-photo">📡</div>
+      <div class="device-photo">
+        📡
+      </div>
+
 
       <div style="flex:1;">
 
         <div class="detail-row">
-          <span class="detail-key">IMEI</span>
-          <span class="detail-value" id="detailIMEI">-</span>
+
+          <span class="detail-key">
+            IMEI
+          </span>
+
+          <span class="detail-value"
+                id="detailIMEI">
+            -
+          </span>
+
         </div>
 
-        <div class="detail-row">
-          <span class="detail-key">SIM</span>
-          <span class="detail-value" id="detailSIM">-</span>
-        </div>
 
         <div class="detail-row">
-          <span class="detail-key">Model</span>
-          <span class="detail-value" id="detailModel">-</span>
+
+          <span class="detail-key">
+            SIM
+          </span>
+
+          <span class="detail-value"
+                id="detailSIM">
+            -
+          </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+          <span class="detail-key">
+            Model
+          </span>
+
+          <span class="detail-value"
+                id="detailModel">
+            -
+          </span>
+
         </div>
 
       </div>
@@ -1604,8 +2130,11 @@ textarea{
   </div>
 
 
-  <button class="secondary-btn" onclick="goHome()">
+  <button class="secondary-btn"
+          onclick="goHome()">
+
     ↩ BACK
+
   </button>
 
 </section>
@@ -1615,35 +2144,54 @@ textarea{
 
 <!-- ================= SCANNER ================= -->
 
-<div id="scanner" class="scanner">
+<div id="scanner"
+     class="scanner">
 
   <video id="cameraVideo"
          autoplay
          playsinline
-         muted></video>
+         muted>
+  </video>
 
 
   <div class="scanner-top">
 
     <div class="scanner-title">
-      📷 <span id="scannerModeTitle">SCAN QR</span>
+
+      📷
+      <span id="scannerModeTitle">
+        SCAN QR
+      </span>
+
     </div>
+
 
     <div class="scanner-controls">
 
       <select id="cameraSelect"
               onchange="switchCamera()">
-        <option value="">Camera</option>
+
+        <option value="">
+          Camera
+        </option>
+
       </select>
+
 
       <select id="zoomSelect"
               onchange="applyZoom()">
-        <option value="">Zoom</option>
+
+        <option value="">
+          Zoom
+        </option>
+
       </select>
+
 
       <button onclick="loadCameras()">
         🔄 Camera
       </button>
+
 
       <button onclick="closeScanner()">
         ✕ CLOSE
@@ -1655,14 +2203,19 @@ textarea{
 
 
   <div class="scan-frame">
+
     <div class="scan-line"></div>
+
   </div>
 
 
   <div class="scanner-bottom">
 
-    <div class="scanner-message" id="scannerMessage">
+    <div class="scanner-message"
+         id="scannerMessage">
+
       Point the camera at the code.
+
     </div>
 
   </div>
@@ -1679,7 +2232,10 @@ textarea{
     <button class="nav-btn active"
             onclick="showPage('homePage')">
 
-      <div class="nav-icon">⌂</div>
+      <div class="nav-icon">
+        ⌂
+      </div>
+
       Home
 
     </button>
@@ -1688,7 +2244,10 @@ textarea{
     <button class="nav-btn"
             onclick="showPage('historyPage')">
 
-      <div class="nav-icon">◷</div>
+      <div class="nav-icon">
+        ◷
+      </div>
+
       History
 
     </button>
@@ -1697,7 +2256,10 @@ textarea{
     <button class="nav-btn"
             onclick="showPage('searchPage')">
 
-      <div class="nav-icon">⌕</div>
+      <div class="nav-icon">
+        ⌕
+      </div>
+
       Search
 
     </button>
@@ -1706,7 +2268,10 @@ textarea{
     <button class="nav-btn"
             onclick="showPage('dashboardPage')">
 
-      <div class="nav-icon">▥</div>
+      <div class="nav-icon">
+        ▥
+      </div>
+
       Dashboard
 
     </button>
@@ -1716,7 +2281,9 @@ textarea{
 </nav>
 
 
-<div id="toast" class="toast"></div>
+<div id="toast"
+     class="toast">
+</div>
 
 
 <script>
@@ -1725,52 +2292,83 @@ textarea{
    BASIC NAVIGATION
 ========================================================= */
 
-let currentPage = "homePage";
+let currentPage="homePage";
+
 
 function showPage(pageId){
 
-  document.querySelectorAll(".page").forEach(page=>{
-    page.classList.remove("active");
-  });
+  document.querySelectorAll(".page")
+    .forEach(page=>{
+      page.classList.remove("active");
+    });
 
-  const page=document.getElementById(pageId);
+
+  const page=
+    document.getElementById(pageId);
+
 
   if(page){
+
     page.classList.add("active");
+
     currentPage=pageId;
+
     window.scrollTo(0,0);
+
   }
 
+
   updateBottomNav(pageId);
+
 }
 
 
 function goHome(){
+
   showPage("homePage");
+
 }
 
 
 function updateBottomNav(pageId){
 
-  document.querySelectorAll(".nav-btn").forEach(btn=>{
-    btn.classList.remove("active");
-  });
+  document.querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
+
 
   if(pageId==="homePage"){
-    document.querySelectorAll(".nav-btn")[0].classList.add("active");
+
+    document.querySelectorAll(".nav-btn")[0]
+      .classList.add("active");
+
   }
+
 
   if(pageId==="historyPage"){
-    document.querySelectorAll(".nav-btn")[1].classList.add("active");
+
+    document.querySelectorAll(".nav-btn")[1]
+      .classList.add("active");
+
   }
+
 
   if(pageId==="searchPage"){
-    document.querySelectorAll(".nav-btn")[2].classList.add("active");
+
+    document.querySelectorAll(".nav-btn")[2]
+      .classList.add("active");
+
   }
 
+
   if(pageId==="dashboardPage"){
-    document.querySelectorAll(".nav-btn")[3].classList.add("active");
+
+    document.querySelectorAll(".nav-btn")[3]
+      .classList.add("active");
+
   }
+
 }
 
 
@@ -1780,18 +2378,27 @@ function updateBottomNav(pageId){
 
 let toastTimer;
 
+
 function toast(message){
 
-  const el=document.getElementById("toast");
+  const el=
+    document.getElementById("toast");
+
 
   el.textContent=message;
+
   el.classList.add("show");
+
 
   clearTimeout(toastTimer);
 
+
   toastTimer=setTimeout(()=>{
+
     el.classList.remove("show");
+
   },2600);
+
 }
 
 
@@ -1810,15 +2417,24 @@ async function openScanner(mode){
 
   scannerMode=mode;
 
-  document.getElementById("scanner").classList.add("active");
 
-  document.getElementById("scannerModeTitle").textContent =
-    mode==="imei" ? "SCAN QR — IMEI" : "SCAN BARCODE — SIM";
+  document.getElementById("scanner")
+    .classList.add("active");
 
-  document.getElementById("scannerMessage").textContent =
-    mode==="imei"
-      ? "Point the camera at the IMEI QR code."
-      : "Point the camera at the SIM barcode.";
+
+  document.getElementById("scannerModeTitle")
+    .textContent=
+      mode==="imei"
+        ? "SCAN QR — IMEI"
+        : "SCAN BARCODE — SIM";
+
+
+  document.getElementById("scannerMessage")
+    .textContent=
+      mode==="imei"
+        ? "Point the camera at the IMEI QR code."
+        : "Point the camera at the SIM barcode.";
+
 
   await startCamera();
 
@@ -1829,57 +2445,92 @@ async function startCamera(deviceId=""){
 
   stopCamera(false);
 
-  if(!navigator.mediaDevices ||
-     !navigator.mediaDevices.getUserMedia){
 
-    document.getElementById("scannerMessage").textContent =
-      "Camera is not supported by this browser.";
+  if(
+    !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia
+  ){
+
+    document.getElementById("scannerMessage")
+      .textContent=
+        "Camera is not supported by this browser.";
 
     return;
+
   }
+
 
   try{
 
     const constraints={
       video:{
-        facingMode:{ideal:"environment"},
-        width:{ideal:1920},
-        height:{ideal:1080}
+        facingMode:{
+          ideal:"environment"
+        },
+        width:{
+          ideal:1920
+        },
+        height:{
+          ideal:1080
+        }
       },
       audio:false
     };
 
+
     if(deviceId){
+
       constraints.video={
-        deviceId:{exact:deviceId},
-        width:{ideal:1920},
-        height:{ideal:1080}
+        deviceId:{
+          exact:deviceId
+        },
+        width:{
+          ideal:1920
+        },
+        height:{
+          ideal:1080
+        }
       };
+
     }
 
-    cameraStream=
-      await navigator.mediaDevices.getUserMedia(constraints);
 
-    const video=document.getElementById("cameraVideo");
+    cameraStream=
+      await navigator.mediaDevices
+        .getUserMedia(constraints);
+
+
+    const video=
+      document.getElementById("cameraVideo");
+
 
     video.srcObject=cameraStream;
 
-    cameraTrack=cameraStream.getVideoTracks()[0];
+
+    cameraTrack=
+      cameraStream.getVideoTracks()[0];
+
 
     await video.play();
 
+
     await loadCameras();
+
 
     loadZoom();
 
+
     startDetection();
+
 
   }catch(error){
 
     console.error(error);
 
-    document.getElementById("scannerMessage").textContent =
-      "Camera access failed. Please allow camera permission.";
+
+    document.getElementById("scannerMessage")
+      .textContent=
+        "Camera access failed. Please allow camera permission.";
 
   }
 
@@ -1891,41 +2542,61 @@ async function loadCameras(){
   try{
 
     const devices=
-      await navigator.mediaDevices.enumerateDevices();
+      await navigator.mediaDevices
+        .enumerateDevices();
+
 
     const cameras=
       devices.filter(device=>
         device.kind==="videoinput"
       );
 
+
     const select=
       document.getElementById("cameraSelect");
+
 
     const current=
       select.value;
 
+
     select.innerHTML="";
+
 
     cameras.forEach((camera,index)=>{
 
-      const option=document.createElement("option");
+      const option=
+        document.createElement("option");
 
-      option.value=camera.deviceId;
 
-      let label=camera.label;
+      option.value=
+        camera.deviceId;
+
+
+      let label=
+        camera.label;
+
 
       if(!label){
-        label="Camera "+(index+1);
+
+        label=
+          "Camera "+(index+1);
+
       }
 
+
       option.textContent=label;
+
 
       select.appendChild(option);
 
     });
 
+
     if(current){
+
       select.value=current;
+
     }
 
   }catch(error){
@@ -1942,9 +2613,13 @@ async function switchCamera(){
   const select=
     document.getElementById("cameraSelect");
 
+
   if(!select.value){
+
     return;
+
   }
+
 
   await startCamera(select.value);
 
@@ -1956,7 +2631,9 @@ function loadZoom(){
   const select=
     document.getElementById("zoomSelect");
 
+
   select.innerHTML="";
+
 
   if(!cameraTrack){
 
@@ -1964,12 +2641,15 @@ function loadZoom(){
       '<option value="">Zoom unavailable</option>';
 
     return;
+
   }
+
 
   const capabilities=
     cameraTrack.getCapabilities ?
     cameraTrack.getCapabilities() :
     {};
+
 
   if(!capabilities.zoom){
 
@@ -1977,18 +2657,31 @@ function loadZoom(){
       '<option value="">Zoom unavailable</option>';
 
     return;
+
   }
 
-  const min=capabilities.zoom.min;
-  const max=capabilities.zoom.max;
-  const step=capabilities.zoom.step || 0.1;
+
+  const min=
+    capabilities.zoom.min;
+
+  const max=
+    capabilities.zoom.max;
+
+  const step=
+    capabilities.zoom.step || 0.1;
+
 
   let values=[];
 
-  /* Try to expose 1x first */
+
+  /* 1x option first when supported */
+
   if(min<=1 && max>=1){
+
     values.push(1);
+
   }
+
 
   for(
     let value=min;
@@ -1999,32 +2692,46 @@ function loadZoom(){
     const rounded=
       Math.round(value*10)/10;
 
+
     if(
       rounded>=min &&
       rounded<=max &&
       !values.includes(rounded)
     ){
+
       values.push(rounded);
+
     }
 
   }
 
+
   values.sort((a,b)=>a-b);
+
 
   values.forEach(value=>{
 
-    const option=document.createElement("option");
+    const option=
+      document.createElement("option");
+
 
     option.value=value;
-    option.textContent=value+"×";
+
+    option.textContent=
+      value+"×";
+
 
     select.appendChild(option);
 
   });
 
+
   if(values.includes(1)){
+
     select.value="1";
+
     applyZoom();
+
   }
 
 }
@@ -2033,29 +2740,45 @@ function loadZoom(){
 async function applyZoom(){
 
   if(!cameraTrack){
+
     return;
+
   }
+
 
   const select=
     document.getElementById("zoomSelect");
 
-  const value=parseFloat(select.value);
+
+  const value=
+    parseFloat(select.value);
+
 
   if(!Number.isFinite(value)){
+
     return;
+
   }
+
 
   try{
 
     await cameraTrack.applyConstraints({
+
       advanced:[
-        {zoom:value}
+        {
+          zoom:value
+        }
       ]
+
     });
 
   }catch(error){
 
-    console.log("Zoom not supported:",error);
+    console.log(
+      "Zoom not supported:",
+      error
+    );
 
   }
 
@@ -2065,10 +2788,14 @@ async function applyZoom(){
 function startDetection(){
 
   if(scanning){
+
     return;
+
   }
 
+
   scanning=true;
+
 
   if("BarcodeDetector" in window){
 
@@ -2076,8 +2803,9 @@ function startDetection(){
 
   }else{
 
-    document.getElementById("scannerMessage").textContent =
-      "Camera opened, but this browser does not support built-in barcode scanning.";
+    document.getElementById("scannerMessage")
+      .textContent=
+        "Camera opened, but this browser does not support built-in barcode scanning.";
 
   }
 
@@ -2087,10 +2815,14 @@ function startDetection(){
 async function detectWithBarcodeDetector(){
 
   if(!scanning){
+
     return;
+
   }
 
+
   const formats=[
+
     "qr_code",
     "code_128",
     "code_39",
@@ -2100,14 +2832,19 @@ async function detectWithBarcodeDetector(){
     "upc_a",
     "upc_e",
     "itf"
+
   ];
 
+
   let detector;
+
 
   try{
 
     detector=
-      new BarcodeDetector({formats});
+      new BarcodeDetector({
+        formats
+      });
 
   }catch(error){
 
@@ -2116,13 +2853,16 @@ async function detectWithBarcodeDetector(){
 
   }
 
+
   const video=
     document.getElementById("cameraVideo");
+
 
   try{
 
     const results=
       await detector.detect(video);
+
 
     if(results && results.length){
 
@@ -2131,13 +2871,18 @@ async function detectWithBarcodeDetector(){
       );
 
       return;
+
     }
 
   }catch(error){
 
-    console.log("Detection:",error);
+    console.log(
+      "Detection:",
+      error
+    );
 
   }
+
 
   scanTimer=
     setTimeout(
@@ -2150,48 +2895,58 @@ async function detectWithBarcodeDetector(){
 
 function handleScanResult(value){
 
-  value=String(value || "").trim();
+  value=
+    String(value || "")
+      .trim();
+
 
   if(!value){
+
     return;
+
   }
+
 
   if(scannerMode==="imei"){
 
     const imei=
       value.replace(/\s/g,"");
 
-    /*
-      IMEI rule:
-      numbers only
-      more than 10 digits
-    */
 
-    if(!/^\d+$/.test(imei) || imei.length<=10){
+    if(
+      !/^\d+$/.test(imei) ||
+      imei.length<=10
+    ){
 
-      document.getElementById("scannerMessage").textContent =
-        "Invalid IMEI QR. QR must contain IMEI numbers only.";
+      document.getElementById("scannerMessage")
+        .textContent=
+          "Invalid IMEI QR. QR must contain IMEI numbers only.";
 
       return;
+
     }
 
-    document.getElementById("imeiInput").value=imei;
 
-    toast("IMEI scanned successfully");
+    document.getElementById("imeiInput")
+      .value=imei;
+
+
+    toast(
+      "IMEI scanned successfully"
+    );
 
   }else{
 
-    /*
-      SIM barcode:
-      accepts alphanumeric / special characters
-      exactly as scanned
-    */
+    document.getElementById("simInput")
+      .value=value;
 
-    document.getElementById("simInput").value=value;
 
-    toast("SIM barcode scanned successfully");
+    toast(
+      "SIM barcode scanned successfully"
+    );
 
   }
+
 
   closeScanner();
 
@@ -2202,21 +2957,30 @@ function stopCamera(reset=true){
 
   scanning=false;
 
+
   if(scanTimer){
+
     clearTimeout(scanTimer);
+
     scanTimer=null;
+
   }
+
 
   if(cameraStream){
 
-    cameraStream.getTracks().forEach(track=>{
-      track.stop();
-    });
+    cameraStream.getTracks()
+      .forEach(track=>{
+        track.stop();
+      });
 
     cameraStream=null;
+
   }
 
+
   cameraTrack=null;
+
 
   if(reset){
 
@@ -2224,6 +2988,7 @@ function stopCamera(reset=true){
       document.getElementById("cameraVideo");
 
     video.srcObject=null;
+
   }
 
 }
@@ -2232,6 +2997,7 @@ function stopCamera(reset=true){
 function closeScanner(){
 
   stopCamera();
+
 
   document.getElementById("scanner")
     .classList.remove("active");
@@ -2246,79 +3012,120 @@ function closeScanner(){
 function saveInventory(){
 
   const imei=
-    document.getElementById("imeiInput").value.trim();
+    document.getElementById("imeiInput")
+      .value.trim();
+
 
   const sim=
-    document.getElementById("simInput").value.trim();
+    document.getElementById("simInput")
+      .value.trim();
+
 
   const model=
-    document.getElementById("modelInput").value;
+    document.getElementById("modelInput")
+      .value;
+
 
   const relay=
-    document.getElementById("relayInput").value;
+    document.getElementById("relayInput")
+      .value;
+
 
   const price=
-    document.getElementById("priceInput").value;
+    document.getElementById("priceInput")
+      .value;
+
 
   const locking=
-    document.getElementById("lockingInput").value;
+    document.getElementById("lockingInput")
+      .value;
+
 
   const remarks=
-    document.getElementById("remarksInput").value.trim();
+    document.getElementById("remarksInput")
+      .value.trim();
 
 
   if(!imei){
 
     toast("IMEI is required");
+
     return;
+
   }
 
-  if(!/^\d+$/.test(imei) || imei.length<=10){
+
+  if(
+    !/^\d+$/.test(imei) ||
+    imei.length<=10
+  ){
 
     toast("Invalid IMEI");
+
     return;
+
   }
+
 
   if(!sim){
 
     toast("SIM number is required");
+
     return;
+
   }
+
 
   if(!model){
 
     toast("Select Device Model");
+
     return;
+
   }
+
 
   if(!relay){
 
     toast("Select Relay");
+
     return;
+
   }
 
-  if(price==="" ||
-     Number(price)<0){
 
-    toast("Enter a valid Purchase Price");
+  if(
+    price==="" ||
+    Number(price)<0
+  ){
+
+    toast(
+      "Enter a valid Purchase Price"
+    );
+
     return;
+
   }
+
 
   if(!locking){
 
-    toast("Select Locking Status");
+    toast(
+      "Select Locking Status"
+    );
+
     return;
+
   }
 
 
-  /*
-    Backend connection will be added after
-    the frontend design is confirmed.
-  */
+  toast(
+    "Inventory form validated successfully"
+  );
 
-  toast("Inventory form validated successfully");
 
   console.log({
+
     imei,
     sim,
     model,
@@ -2326,6 +3133,7 @@ function saveInventory(){
     price,
     locking,
     remarks
+
   });
 
 }
@@ -2338,39 +3146,55 @@ function saveInventory(){
 function searchForDispatch(){
 
   const value=
-    document.getElementById("dispatchSearch").value.trim();
+    document.getElementById("dispatchSearch")
+      .value.trim();
+
 
   if(!value){
 
-    toast("Enter IMEI digits");
+    toast(
+      "Enter IMEI digits"
+    );
+
     return;
+
   }
 
-  /*
-    Temporary UI preview.
-    Backend search will be connected next.
-  */
 
-  document.getElementById("dispatchDeviceCard")
-    .style.display="block";
+  document.getElementById(
+    "dispatchDeviceCard"
+  ).style.display="block";
 
-  document.getElementById("dispatchIMEI")
-    .textContent="Waiting for backend";
 
-  document.getElementById("dispatchSIM")
-    .textContent="-";
+  document.getElementById(
+    "dispatchIMEI"
+  ).textContent=
+    "Waiting for backend";
 
-  document.getElementById("dispatchModel")
-    .textContent="-";
 
-  document.getElementById("dispatchRelay")
-    .textContent="-";
+  document.getElementById(
+    "dispatchSIM"
+  ).textContent="-";
 
-  document.getElementById("dispatchSIMStatus")
-    .textContent="-";
 
-  document.getElementById("dispatchStatus")
-    .textContent="IN STOCK";
+  document.getElementById(
+    "dispatchModel"
+  ).textContent="-";
+
+
+  document.getElementById(
+    "dispatchRelay"
+  ).textContent="-";
+
+
+  document.getElementById(
+    "dispatchSIMStatus"
+  ).textContent="-";
+
+
+  document.getElementById(
+    "dispatchStatus"
+  ).textContent="IN STOCK";
 
 }
 
@@ -2378,43 +3202,75 @@ function searchForDispatch(){
 function confirmDispatch(){
 
   const partyType=
-    document.getElementById("partyType").value;
+    document.getElementById("partyType")
+      .value;
+
 
   const partyName=
-    document.getElementById("partyName").value.trim();
+    document.getElementById("partyName")
+      .value.trim();
+
 
   const partyMobile=
-    document.getElementById("partyMobile").value.trim();
+    document.getElementById("partyMobile")
+      .value.trim();
+
 
   const amount=
-    document.getElementById("dispatchAmount").value;
+    document.getElementById("dispatchAmount")
+      .value;
 
 
   if(!partyType){
 
-    toast("Select Party Type");
+    toast(
+      "Select Party Type"
+    );
+
     return;
+
   }
+
 
   if(!partyName){
 
-    toast("Enter Party Name");
+    toast(
+      "Enter Party Name"
+    );
+
     return;
+
   }
+
 
   if(!partyMobile){
 
-    toast("Enter Party Mobile");
+    toast(
+      "Enter Party Mobile"
+    );
+
     return;
+
   }
 
-  if(amount==="" || Number(amount)<0){
 
-    toast("Enter Dispatch Amount");
+  if(
+    amount==="" ||
+    Number(amount)<0
+  ){
+
+    toast(
+      "Enter Dispatch Amount"
+    );
+
     return;
+
   }
 
-  toast("Dispatch form validated");
+
+  toast(
+    "Dispatch form validated"
+  );
 
 }
 
@@ -2426,28 +3282,45 @@ function confirmDispatch(){
 function searchForInstallation(){
 
   const value=
-    document.getElementById("installSearch").value.trim();
+    document.getElementById("installSearch")
+      .value.trim();
+
 
   if(!value){
 
-    toast("Enter IMEI digits");
+    toast(
+      "Enter IMEI digits"
+    );
+
     return;
+
   }
 
-  document.getElementById("installIMEI")
-    .textContent="Waiting for backend";
 
-  document.getElementById("installSIM")
-    .textContent="-";
+  document.getElementById(
+    "installIMEI"
+  ).textContent=
+    "Waiting for backend";
 
-  document.getElementById("installModel")
-    .textContent="-";
 
-  document.getElementById("installRelay")
-    .textContent="-";
+  document.getElementById(
+    "installSIM"
+  ).textContent="-";
 
-  document.getElementById("installSIMStatus")
-    .textContent="ACTIVE";
+
+  document.getElementById(
+    "installModel"
+  ).textContent="-";
+
+
+  document.getElementById(
+    "installRelay"
+  ).textContent="-";
+
+
+  document.getElementById(
+    "installSIMStatus"
+  ).textContent="ACTIVE";
 
 }
 
@@ -2455,52 +3328,88 @@ function searchForInstallation(){
 function saveInstallation(){
 
   const installer=
-    document.getElementById("installerInput").value;
+    document.getElementById("installerInput")
+      .value;
+
 
   const customer=
-    document.getElementById("customerName").value.trim();
+    document.getElementById("customerName")
+      .value.trim();
+
 
   const mobile=
-    document.getElementById("customerMobile").value.trim();
+    document.getElementById("customerMobile")
+      .value.trim();
+
 
   const vehicle=
-    document.getElementById("vehicleNo").value.trim();
+    document.getElementById("vehicleNo")
+      .value.trim();
+
 
   const status=
-    document.getElementById("installationStatus").value;
+    document.getElementById("installationStatus")
+      .value;
 
 
   if(!installer){
 
-    toast("Select Installer");
+    toast(
+      "Select Installer"
+    );
+
     return;
+
   }
+
 
   if(!customer){
 
-    toast("Enter Customer Name");
+    toast(
+      "Enter Customer Name"
+    );
+
     return;
+
   }
+
 
   if(!mobile){
 
-    toast("Enter Customer Mobile");
+    toast(
+      "Enter Customer Mobile"
+    );
+
     return;
+
   }
+
 
   if(!vehicle){
 
-    toast("Enter Vehicle No.");
+    toast(
+      "Enter Vehicle No."
+    );
+
     return;
+
   }
+
 
   if(!status){
 
-    toast("Select Installation Status");
+    toast(
+      "Select Installation Status"
+    );
+
     return;
+
   }
 
-  toast("Installation form validated");
+
+  toast(
+    "Installation form validated"
+  );
 
 }
 
@@ -2519,7 +3428,9 @@ function setFilter(button,filter){
       item.classList.remove("active");
     });
 
+
   button.classList.add("active");
+
 
   activeFilter=filter;
 
@@ -2529,23 +3440,37 @@ function setFilter(button,filter){
 function performSearch(){
 
   const query=
-    document.getElementById("mainSearch").value.trim();
+    document.getElementById("mainSearch")
+      .value.trim();
+
 
   if(!query){
 
-    toast("Enter search value");
+    toast(
+      "Enter search value"
+    );
+
     return;
+
   }
 
+
   const container=
-    document.getElementById("searchResults");
+    document.getElementById(
+      "searchResults"
+    );
+
 
   container.innerHTML="";
+
 
   const result=
     document.createElement("div");
 
-  result.className="device-result";
+
+  result.className=
+    "device-result";
+
 
   result.innerHTML=`
 
@@ -2560,6 +3485,7 @@ function performSearch(){
       </span>
 
     </div>
+
 
     <div class="device-meta">
 
@@ -2587,10 +3513,13 @@ function performSearch(){
 
   `;
 
+
   container.appendChild(result);
 
-  document.getElementById("resultCount")
-    .textContent="(1)";
+
+  document.getElementById(
+    "resultCount"
+  ).textContent="(1)";
 
 }
 
@@ -2598,15 +3527,24 @@ function performSearch(){
 function searchHistory(){
 
   const value=
-    document.getElementById("historySearch").value.trim();
+    document.getElementById("historySearch")
+      .value.trim();
+
 
   if(!value){
 
-    toast("Enter IMEI digits");
+    toast(
+      "Enter IMEI digits"
+    );
+
     return;
+
   }
 
-  document.getElementById("historyTimeline").innerHTML=`
+
+  document.getElementById(
+    "historyTimeline"
+  ).innerHTML=`
 
     <div class="timeline-item">
 
@@ -2621,8 +3559,9 @@ function searchHistory(){
       </div>
 
       <div class="timeline-sub">
-        Complete IN STOCK → DISPATCHED → DELIVERED →
-        INSTALLED / RETURNED journey will appear here.
+        Complete IN STOCK → DISPATCHED →
+        DELIVERED → INSTALLED / RETURNED
+        journey will appear here.
       </div>
 
     </div>
@@ -2652,18 +3591,16 @@ function escapeHTML(value){
    INITIALIZATION
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener(
+  "DOMContentLoaded",
+  ()=>{
 
-  showPage("homePage");
+    showPage("homePage");
 
-  /*
-    Camera permission is NOT requested on page load.
-    It is requested only when user presses SCAN QR / SCAN SIM.
-  */
-
-});
+  }
+);
 
 </script>
 
 </body>
-          </html>
+</html>
