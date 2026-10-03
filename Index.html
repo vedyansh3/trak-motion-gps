@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TRAK MOTION GPS</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07131f;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .app {
+      min-height: 100vh;
+      padding-bottom: 75px;
+    }
+
+    /* Top bar */
+    .topbar {
+      height: 70px;
+      background: #0c2032;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border-bottom: 1px solid #18364d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-right: 10px;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .brand span {
+      font-size: 11px;
+      color: #8fa9bb;
+    }
+
+    .online {
+      margin-left: auto;
+      font-size: 11px;
+      color: #34d399;
+    }
+
+    /* Main */
+    .main {
+      padding: 18px 14px;
+    }
+
+    .welcome {
+      margin-bottom: 18px;
+    }
+
+    .welcome h2 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .welcome p {
+      color: #91a7b7;
+      font-size: 13px;
+    }
+
+    /* Cards */
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: #0d2438;
+      border: 1px solid #193b53;
+      border-radius: 14px;
+      padding: 15px;
+    }
+
+    .stat-title {
+      color: #91a7b7;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .green {
+      color: #34d399;
+    }
+
+    .blue {
+      color: #60a5fa;
+    }
+
+    .orange {
+      color: #fbbf24;
+    }
+
+    .purple {
+      color: #a78bfa;
+    }
+
+    /* Sections */
+    .section {
+      background: #0d2438;
+      border: 1px solid #193b53;
+      border-radius: 14px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .section-title h3 {
+      font-size: 16px;
+    }
+
+    .section-title span {
+      color: #34d399;
+      font-size: 11px;
+    }
+
+    /* Quick actions */
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .action {
+      border: none;
+      border-radius: 12px;
+      padding: 16px 8px;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .action-inventory {
+      background: #2563eb;
+    }
+
+    .action-search {
+      background: #059669;
+    }
+
+    .action-dispatch {
+      background: #d97706;
+    }
+
+    .action-install {
+      background: #7c3aed;
+    }
+
+    /* Inventory summary */
+    .inventory-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #17354b;
+      font-size: 13px;
+    }
+
+    .inventory-row:last-child {
+      border-bottom: none;
+    }
+
+    .inventory-label {
+      color: #a9bbc8;
+    }
+
+    /* Activity */
+    .activity {
+      display: flex;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid #17354b;
+    }
+
+    .activity:last-child {
+      border-bottom: none;
+    }
+
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #123c4b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .activity-text {
+      flex: 1;
+    }
+
+    .activity-text strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+
+    .activity-text small {
+      color: #8198a8;
+      font-size: 10px;
+    }
+
+    /* Bottom navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      background: #0b1d2d;
+      border-top: 1px solid #193b53;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 20;
+    }
+
+    .nav-item {
+      border: none;
+      background: transparent;
+      color: #71899b;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      color: #34d399;
+    }
+
+    .nav-icon {
+      font-size: 21px;
+    }
+
+    /* Desktop adjustment */
+    @media (min-width: 700px) {
+      .main {
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .actions {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .bottom-nav {
+        display: none;
+      }
+
+      .app {
+        padding-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header class="topbar">
+      <div class="logo">📍</div>
+
+      <div class="brand">
+        <h1>TRAK MOTION GPS</h1>
+        <span>Track • Manage • Grow</span>
+      </div>
+
+      <div class="online">● Online</div>
+    </header>
+
+    <main class="main">
+
+      <div class="welcome">
+        <h2>Dashboard</h2>
+        <p>Inventory & GPS management system</p>
+      </div>
+
+      <div class="stats">
+
+        <div class="card">
+          <div class="stat-title">Total Inventory</div>
+          <div class="stat-value blue">0</div>
+        </div>
+
+        <div class="card">
+          <div class="stat-title">In Stock</div>
+          <div class="stat-value green">0</div>
+        </div>
+
+        <div class="card">
+          <div class="stat-title">Installed</div>
+          <div class="stat-value purple">0</div>
+        </div>
+
+        <div class="card">
+          <div class="stat-title">Dispatched</div>
+          <div class="stat-value orange">0</div>
+        </div>
+
+      </div>
+
+      <section class="section">
+
+        <div class="section-title">
+          <h3>Quick Actions</h3>
+          <span>GPS Ji</span>
+        </div>
+
+        <div class="actions">
+
+          <button class="action action-inventory">
+            📦<br>
+            Add Inventory
+          </button>
+
+          <button class="action action-search">
+            🔍<br>
+            Search
+          </button>
+
+          <button class="action action-dispatch">
+            🚚<br>
+            Dispatch
+          </button>
+
+          <button class="action action-install">
+            📍<br>
+            Installation
+          </button>
+
+        </div>
+
+      </section>
+
+      <section class="section">
+
+        <div class="section-title">
+          <h3>Inventory Summary</h3>
+        </div>
+
+        <div class="inventory-row">
+          <span class="inventory-label">IN STOCK</span>
+          <strong>0</strong>
+        </div>
+
+        <div class="inventory-row">
+          <span class="inventory-label">PACKED</span>
+          <strong>0</strong>
+        </div>
+
+        <div class="inventory-row">
+          <span class="inventory-label">DISPATCHED</span>
+          <strong>0</strong>
+        </div>
+
+        <div class="inventory-row">
+          <span class="inventory-label">DELIVERED</span>
+          <strong>0</strong>
+        </div>
+
+        <div class="inventory-row">
+          <span class="inventory-label">INSTALLED</span>
+          <strong>0</strong>
+        </div>
+
+      </section>
+
+      <section class="section">
+
+        <div class="section-title">
+          <h3>Recent Activity</h3>
+          <span>Live</span>
+        </div>
+
+        <div class="activity">
+          <div class="activity-icon">📦</div>
+          <div class="activity-text">
+            <strong>Inventory system ready</strong>
+            <small>Waiting for inventory entries</small>
+          </div>
+        </div>
+
+        <div class="activity">
+          <div class="activity-icon">✅</div>
+          <div class="activity-text">
+            <strong>Backend connected</strong>
+            <small>Google Apps Script is running</small>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+
+      <button class="nav-item active">
+        <span class="nav-icon">⌂</span>
+        Dashboard
+      </button>
+
+      <button class="nav-item">
+        <span class="nav-icon">📦</span>
+        Inventory
+      </button>
+
+      <button class="nav-item">
+        <span class="nav-icon">🔍</span>
+        Search
+      </button>
+
+      <button class="nav-item">
+        <span class="nav-icon">☰</span>
+        More
+      </button>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>
